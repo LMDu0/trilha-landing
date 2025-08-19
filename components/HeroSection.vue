@@ -47,9 +47,9 @@
               variant="outline"
               size="lg"
               class="border-slate-600/50 text-slate-200 hover:text-white hover:border-violet-400/50 px-8 py-4 rounded-xl transition-all duration-300 hover:bg-slate-800/50 backdrop-blur-sm"
-              as="a" href="#projetos"
+              as="a" href="#cases"
             >
-              Ver todos os projetos
+              Ver nossos cases
               <Icon name="lucide:play" class="w-5 h-5 ml-2" />
             </Button>
           </div>

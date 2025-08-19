@@ -1,283 +1,171 @@
 <template>
-  <section id="projetos" class="py-10 md:py-20 bg-slate-950">
-    <div class="container mx-auto px-6 sm:px-8">
-      <header class="max-w-5xl mx-auto mb-8 md:mb-16 text-center">
-        <p class="text-violet-400 font-semibold text-sm uppercase tracking-wider mb-3">Nossos Projetos</p>
-        <h2 class="text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-          Projetos que <span class="text-violet-400">transformam negócios</span>
+  <section id="cases" class="py-16 md:py-24 bg-slate-950">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+      <!-- Header Section -->
+      <header class="max-w-4xl mb-12 md:mb-20 text-left">
+        <div class="text-violet-400 font-semibold text-sm uppercase tracking-wider mb-4">
+          Case de Sucesso
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+          Como elevamos a <span class="text-violet-400">Fenamilho 2025</span> ao próximo nível digital
         </h2>
-        <p class="text-lg lg:text-xl text-slate-400">Conheça projetos que aumentaram vendas, ampliaram alcance e transformaram negócios em diferentes setores.</p>
+        <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl">
+          Aplicativo oficial que conectou visitantes, organizadores e patrocinadores — do pré ao pós-evento — gerando engajamento recorde, novas oportunidades de negócio e uma experiência unificada para milhares de pessoas.
+        </p>
       </header>
 
-      <!-- Apple-like Featured Slider: card grande + texto lateral -->
-      <section class="grid lg:grid-cols-12 gap-6 md:gap-12 items-start mb-10 md:mb-20">
-        <!-- Card Destacado -->
-        <div class="col-span-12 lg:col-span-4 order-1">
-          <!-- Mobile slider: CSS transform based -->
-          <div class="block lg:hidden">
-            <div class="w-full overflow-hidden">
-              <div
-                class="flex transition-transform duration-500 ease-out"
-                :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
-              >
-                <div
-                  v-for="(card, index) in projectCards"
-                  :key="card.id + '-m'"
-                  class="w-full flex-none"
-                >
-                  <AppleCard
-                    :title="card.title"
-                    :description="card.description"
-                    :image="card.image"
-                    :is-active="index === currentIndex"
-                    :progress-percent="0"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Desktop slider: Embla -->
-          <div class="hidden lg:block">
-            <div ref="viewportEl" class="w-full min-h-[520px] overflow-hidden rounded-lg select-none">
-              <div class="flex will-change-transform items-center gap-6">
-                <div
-                  v-for="(card, index) in projectCards"
-                  :key="card.id"
-                  class="flex-none md:w-[320px]"
-                >
-                  <AppleCard
-                    :title="card.title"
-                    :description="card.description"
-                    :image="card.image"
-                    :is-active="index === currentIndex"
-                    :progress-percent="0"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- App Showcase Layout -->
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        
+        <!-- Apple Card Carousel -->
+        <div class="order-1 lg:order-1">
+          <AppleCardCarousel 
+            :cards="appScreens"
+            :auto-play="true"
+            :interval="6000"
+          />
         </div>
 
-        <!-- Texto Lateral -->
-        <aside class="col-span-12 lg:col-span-8 space-y-4 text-left order-2" v-if="activeProject">
-          <div class="flex items-center justify-between gap-3">
-            <div class="flex items-center gap-3">
-              <h3 class="text-2xl lg:text-3xl font-bold text-white">{{ activeProject.title }}</h3>
-              <span v-if="activeProject.id === 'fenamilho'" class="hidden md:inline-flex items-center text-xs px-2.5 py-1 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20">Case de destaque</span>
+        <!-- Static Content -->
+        <div class="order-2 lg:order-2 space-y-6 flex flex-col justify-center">
+          <div>
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+              Solução completa para eventos
+            </h3>
+            <p class="text-slate-300 leading-relaxed text-lg">
+              Um aplicativo que conecta organizadores, participantes e patrocinadores em uma experiência única, 
+              com funcionalidades que abrangem todo o ciclo do evento.
+            </p>
+          </div>
+
+          <!-- Key Benefits - Grid 2 colunas -->
+          <div class="space-y-4">
+            <h4 class="text-white font-semibold text-lg">Principais funcionalidades:</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:smartphone" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">App nativo iOS e Android</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:calendar" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">Agenda do evento</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:newspaper" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">Central de notícias</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:map-pin" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">Mapa interativo</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:bell" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">Push notifications</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:gamepad-2" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">Roletas e prêmios</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:megaphone" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">Espaços para anúncios</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400 bg-slate-900/50 rounded-lg px-2 py-1.5 md:px-3 md:py-2 border border-slate-800/50">
+                <Icon name="lucide:bar-chart-3" class="w-4 h-4 text-violet-400 flex-shrink-0" />
+                <span class="text-sm">Analytics detalhados</span>
+              </div>
             </div>
           </div>
 
-          
-          <div class="space-y-3 max-w-2xl">
-            <p class="text-slate-300 leading-relaxed">{{ activeProject.description }}</p>
-          </div>
-
-          <!-- Features do slide -->
-          <div v-if="activeProject.features && activeProject.features.length" class="grid grid-cols-1 gap-2 pt-2">
-            <div v-for="f in activeProject.features" :key="f" class="flex items-center gap-2 text-sm text-slate-400">
-              <Icon name="lucide:check" class="w-4 h-4 text-violet-400" />
-              <span>{{ f }}</span>
-            </div>
-          </div>
-
-          <!-- KPIs do case quando disponíveis -->
-          <div v-if="activeProject.kpis && activeProject.kpis.length" class="flex flex-wrap gap-2">
-            <span
-              v-for="k in activeProject.kpis"
-              :key="k"
-              class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs border border-slate-700/60 text-slate-300 bg-slate-900/40"
+          <!-- CTA Section -->
+          <div class="pt-6 border-t border-slate-800/60">
+            <a 
+              href="#contact" 
+              class="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 bg-violet-500 hover:bg-violet-600 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-violet-500/25 hover:scale-105"
             >
-              <Icon name="lucide:bar-chart-2" class="w-3.5 h-3.5 text-violet-400" />
-              {{ k }}
-            </span>
-          </div>
-
-          <!-- CTA para o case -->
-          <div v-if="activeProject.id === 'fenamilho'" class="pt-2">
-            <a href="#cases" class="inline-flex items-center gap-2 rounded-lg px-5 py-2.5 bg-violet-500/90 hover:bg-violet-600 text-white font-medium transition-colors">
-              Ver case completo
+              Fale conosco
               <Icon name="lucide:arrow-right" class="w-4 h-4" />
             </a>
           </div>
+        </div>
+      </div>
 
-          <!-- Controles: barra compacta + setas (abaixo do texto) -->
-          <div class="flex items-center gap-3 mt-4">
-            <div class="h-0.5 w-24 md:w-40 bg-slate-800/60">
-              <div class="h-full bg-violet-400 transition-[width] duration-100 ease-linear" :style="{ width: `${progressPercent}%` }" />
+      <!-- Resultados Alcançados -->
+      <div class="mt-16 md:mt-24 text-center">
+        <div class="inline-flex items-center gap-3 mb-8">
+          <div class="w-8 h-1 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full"></div>
+          <h3 class="text-3xl font-bold text-white">Resultados Alcançados</h3>
+          <div class="w-8 h-1 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full"></div>
+        </div>
+
+        <!-- Metrics - Horizontal flow -->
+        <div class="flex flex-wrap justify-center gap-8 mb-12">
+          <div 
+            v-for="(metric, index) in metrics"
+            :key="metric.label"
+            class="group"
+          >
+            <div class="text-5xl font-bold text-violet-400 mb-2 group-hover:scale-110 transition-transform">
+              {{ metric.value }}
             </div>
-            <div class="flex items-center gap-2">
-              <button
-                type="button"
-                aria-label="Projeto anterior"
-                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-800/60 border border-slate-700/60 text-slate-200 hover:bg-slate-700/60 transition-colors"
-                @click="previous"
-              >
-                <Icon name="lucide:chevron-left" class="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                aria-label="Próximo projeto"
-                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-slate-800/60 border border-slate-700/60 text-slate-200 hover:bg-slate-700/60 transition-colors"
-                @click="next"
-              >
-                <Icon name="lucide:chevron-right" class="w-4 h-4" />
-              </button>
-            </div>
+            <div class="text-slate-400 text-sm uppercase tracking-wider">{{ metric.label }}</div>
           </div>
-        </aside>
-      </section>
+        </div>
 
-      <!-- Thumbs removidos para um visual mais limpo -->
-
-      <!-- Removida a grade de soluções para manter foco e limpeza visual -->
-
+        <!-- Key achievement - Banner style -->
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-violet-500/10 via-violet-500/5 to-violet-500/10 border-l-4 border-r-4 border-violet-500 p-8 backdrop-blur-sm">
+          <p class="text-slate-200 text-lg">
+            <span class="text-violet-400 font-bold">+3.000 cliques</span> em anúncios patrocinados e
+            <span class="text-violet-400 font-bold">14 sessões por usuário</span> em média durante o evento
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import AppleCard from './ui/AppleCard.vue'
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import EmblaCarousel, { type EmblaCarouselType } from 'embla-carousel'
+import AppleCardCarousel from './ui/AppleCardCarousel.vue'
 
-
-// Função para gradientes dinâmicos (reservado para futuros usos visuais)
-function getGradientClass(index: number): string {
-  const gradients = [
-    'from-blue-500/30 to-cyan-500/30',
-    'from-emerald-500/30 to-teal-500/30',
-    'from-orange-500/30 to-red-500/30'
-  ] as const
-  return gradients[index % gradients.length] || gradients[0]
-}
-
-
-// Dados dos projetos com foco no case Fenamilho
-const projectCards: Array<{
-  id: string
-  title: string
-  description: string
-  image: string
-  kpis?: string[]
-  features?: string[]
-}> = [
+// Dados simples das telas do app para o carousel
+const appScreens = [
   {
-    id: 'fenamilho',
-    title: 'Fenamilho 2024',
-    description: 'Case de destaque: app oficial que centralizou a experiência do evento e impulsionou engajamento e receita.',
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop',
-    kpis: ['+3.000 cliques em anúncios', '14 sessões por usuário', '205k telas vistas', '+20k interações em roletas']
+    id: 'main',
+    title: 'Tela Principal',
+    description: 'Interface principal do aplicativo',
+    image: '/images/fenamilho-app-mockup.svg'
   },
   {
-    id: 'pre-evento',
-    title: 'Pré-evento: aquecimento do público',
-    description: 'Agenda, notícias, mapa e sorteios ativando o público antes dos portões abrirem.',
-    image: 'https://images.unsplash.com/photo-1529336953121-a436c68fd8fb?w=600&h=400&fit=crop',
-    features: ['Agenda e notificações', 'Mapa interativo', 'Sorteios e divulgação', 'Venda de ingressos']
+    id: 'pre-event',
+    title: 'Pré-evento',
+    description: 'Funcionalidades de preparação',
+    image: '/images/pre-evento-mockup.svg'
   },
   {
-    id: 'durante-evento',
-    title: 'Durante: experiência ao vivo',
-    description: 'Push em tempo real, área de prêmios e anúncios patrocinados com alta conversão.',
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop',
-    features: ['Push em tempo real', 'Gamificação (roletas/prêmios)', 'Anúncios de patrocinadores']
+    id: 'live-event',
+    title: 'Ao Vivo',
+    description: 'Experiência durante o evento',
+    image: '/images/durante-evento-mockup.svg'
   },
   {
-    id: 'pos-evento',
-    title: 'Pós-evento: dados e relacionamento',
-    description: 'Relatórios de engajamento, leads de patrocinadores e pesquisa de satisfação.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-    features: ['Relatórios de engajamento', 'Leads para patrocinadores', 'Pesquisa de satisfação']
+    id: 'post-event',
+    title: 'Pós-evento',
+    description: 'Análises e relacionamento',
+    image: '/images/pos-evento-mockup.svg'
   },
   {
-    id: 'produto',
-    title: 'De projeto a produto',
-    description: 'Plataforma white-label personalizável por evento, reduzindo entrega de 3 meses para 1 semana.',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&h=400&fit=crop',
-    features: ['Core reutilizável', 'Painel de administração', 'Deploy automatizado']
-  },
-  {
-    id: 'monetizacao',
-    title: 'Monetização e pacotes',
-    description: 'Licença, marketplace interno e serviços extras para aumentar ROI de organizadores e patrocinadores.',
-    image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=400&fit=crop',
-    features: ['Licenças mensais/anuais', 'Anúncios e push patrocinado', 'Design e integrações sob demanda']
+    id: 'platform',
+    title: 'Plataforma',
+    description: 'Solução completa',
+    image: '/images/produto-plataforma-mockup.svg'
   }
 ]
 
-const currentIndex = ref<number>(0)
-const intervalMs = 7000
-const viewportEl = ref<HTMLDivElement | null>(null)
-let embla: EmblaCarouselType | undefined
-
-const activeProject = computed(() => projectCards[currentIndex.value] ?? projectCards[0])
-
-// Progresso visual do slide atual (0-100)
-const progressPercent = ref<number>(0)
-let progressRafId: number | null = null
-let progressStartAtMs = 0
-
-function stopProgress(): void {
-  if (progressRafId !== null) {
-    cancelAnimationFrame(progressRafId)
-    progressRafId = null
-  }
-}
-
-function startProgress(): void {
-  stopProgress()
-  progressPercent.value = 0
-  progressStartAtMs = performance.now()
-  const step = (now: number): void => {
-    const elapsed = now - progressStartAtMs
-    progressPercent.value = Math.min(100, (elapsed / intervalMs) * 100)
-    if (elapsed >= intervalMs) {
-      // Avança o slide; o handler 'select' irá reiniciar o progresso
-      next()
-      return
-    }
-    progressRafId = requestAnimationFrame(step)
-  }
-  progressRafId = requestAnimationFrame(step)
-}
-
-function setIndex(index: number): void {
-  currentIndex.value = index
-}
-
-function next(): void {
-  currentIndex.value = (currentIndex.value + 1) % projectCards.length
-  embla?.scrollNext()
-}
-
-function previous(): void {
-  currentIndex.value = currentIndex.value === 0 ? projectCards.length - 1 : currentIndex.value - 1
-  embla?.scrollPrev()
-}
-
-onMounted(async () => {
-  if (viewportEl.value) {    
-    embla = EmblaCarousel(
-      viewportEl.value as unknown as HTMLElement,
-      {
-        loop: true,
-        align: 'start',
-        containScroll: 'keepSnaps',
-        dragFree: false
-      },
-    )
-    
-    embla.on('select', () => {
-      currentIndex.value = embla!.selectedScrollSnap()
-      startProgress()
-    })
-  }
-  startProgress()
-})
-
-onUnmounted(() => {
-  stopProgress()
-  embla?.destroy()
-})
+// Métricas dos resultados
+const metrics = [
+  { value: '+20K', label: 'Giros na roleta' },
+  { value: '205K', label: 'Visualizações de telas' },
+  { value: '3.5K', label: 'Usuários ativos' },
+  { value: '185', label: 'Prêmios distribuídos' }
+]
 </script>

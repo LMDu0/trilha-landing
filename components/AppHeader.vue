@@ -17,8 +17,8 @@
 
         <!-- Navigation -->
         <nav class="hidden md:flex items-center gap-8">
-          <a href="#projetos" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">
-            Projetos
+          <a href="#servicos" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">
+            Serviços
           </a>
           <a href="#cases" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">
             Cases
@@ -56,11 +56,11 @@
       >
         <nav class="py-4 space-y-4 border-t border-slate-800/50">
           <a 
-            href="#projetos" 
+            href="#servicos" 
             class="block text-slate-300 hover:text-white transition-colors text-sm font-medium"
             @click="closeMobileMenu"
           >
-            Projetos
+            Serviços
           </a>
           <a 
             href="#cases" 

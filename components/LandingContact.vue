@@ -76,15 +76,7 @@
                 </div>
               </div>
               
-              <div class="flex items-start space-x-4">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-violet-500/10 border border-violet-500/20">
-                  <Icon name="lucide:map-pin" class="h-5 w-5 text-violet-400" />
-                </div>
-                <div>
-                  <p class="font-medium text-white">Localização</p>
-                  <p class="text-slate-400">Rio Grande do Sul - Brasil</p>
-                </div>
-              </div>
+
             </div>
           </div>
 
@@ -94,12 +86,8 @@
               <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
                 <Icon name="lucide:linkedin" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" />
               </div>
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
-                <Icon name="lucide:github" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" />
-              </div>
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
-                <Icon name="lucide:twitter" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" />
-              </div>
+
+
               <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
                 <Icon name="lucide:instagram" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" />
               </div>

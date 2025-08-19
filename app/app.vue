@@ -9,10 +9,10 @@
         <HeroSection />
       </div>
       <div class="relative z-10">
-        <ProjectsSection />
+        <ServicesSection />
       </div>
       <div class="relative z-10">
-        <CaseStudySection />
+        <ProjectsSection />
       </div>
       <div class="relative z-10">
         <TestimonialSection />
@@ -23,15 +23,17 @@
     </main>
     
     <LandingFooter />
+    <BackToTop />
   </div>
 </template>
 
 <script setup lang="ts">
 import AppHeader from '../components/AppHeader.vue'
 import HeroSection from '../components/HeroSection.vue'
+import ServicesSection from '../components/ServicesSection.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
-import CaseStudySection from '../components/CaseStudySection.vue'
 import TestimonialSection from '../components/TestimonialSection.vue'
 import LandingContact from '../components/LandingContact.vue'
 import LandingFooter from '../components/LandingFooter.vue'
+import BackToTop from '../components/BackToTop.vue'
 </script>

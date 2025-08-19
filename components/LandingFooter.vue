@@ -8,12 +8,8 @@
             <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
               <Icon name="lucide:linkedin" class="h-4 w-4" />
             </a>
-            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
-              <Icon name="lucide:github" class="h-4 w-4" />
-            </a>
-            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
-              <Icon name="lucide:twitter" class="h-4 w-4" />
-            </a>
+
+
             <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
               <Icon name="lucide:instagram" class="h-4 w-4" />
             </a>
@@ -24,7 +20,7 @@
         <div class="lg:col-span-4">
           <h3 class="font-semibold mb-6 text-white">Empresa</h3>
           <ul class="space-y-3 text-sm text-slate-400">
-            <li><a href="#projetos" class="hover:text-violet-400 transition-colors">Projetos</a></li>
+            <li><a href="#servicos" class="hover:text-violet-400 transition-colors">Serviços</a></li>
             <li><a href="#cases" class="hover:text-violet-400 transition-colors">Cases</a></li>
             <li><a href="#contact" class="hover:text-violet-400 transition-colors">Contato</a></li>
           </ul>
@@ -41,15 +37,16 @@
             </li>
             <li class="flex items-center space-x-3">
               <div class="w-8 h-8 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
-                <Icon name="lucide:phone" class="h-4 w-4 text-violet-400" />
+                <Icon name="lucide:message-circle" class="h-4 w-4 text-violet-400" />
               </div>
-              <span class="text-slate-400">(54) 98402-8606</span>
-            </li>
-            <li class="flex items-center space-x-3">
-              <div class="w-8 h-8 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center">
-                <Icon name="lucide:map-pin" class="h-4 w-4 text-violet-400" />
-              </div>
-              <span class="text-slate-400">Rio Grande do Sul - Brasil</span>
+              <a 
+                href="https://wa.me/5554984028606" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="text-slate-400 hover:text-violet-400 transition-colors"
+              >
+                (54) 98402-8606
+              </a>
             </li>
           </ul>
         </div>
@@ -57,7 +54,7 @@
 
       <div class="border-t border-slate-800/60 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
         <p class="text-sm text-slate-500">
-          © 2025. Todos os direitos reservados.
+          © 2025. Todos os direitos reservados. Por Trilha Labs.
         </p>
       </div>
     </div>
