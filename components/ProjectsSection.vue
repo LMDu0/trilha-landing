@@ -1,8 +1,8 @@
 <template>
-  <section id="cases" class="py-16 md:py-24 bg-slate-950">
+  <section id="cases" class="py-16 md:py-20 bg-slate-950">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
       <!-- Header Section -->
-      <header class="max-w-4xl mb-12 md:mb-20 text-left">
+      <header class="max-w-4xl mb-12 md:mb-16 text-left">
         <div class="text-violet-400 font-semibold text-sm uppercase tracking-wider mb-4">
           Case de Sucesso
         </div>

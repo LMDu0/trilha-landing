@@ -1,9 +1,9 @@
 <template>
-  <section class="py-8 md:py-20 bg-slate-900/30">
+  <section class="py-8 md:py-16 bg-slate-900/30">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
       
       <!-- Section header -->
-      <div class="max-w-4xl mx-auto text-center mb-6 md:mb-20">
+      <div class="max-w-4xl mx-auto text-center mb-6 md:mb-16">
         <div class="text-violet-400 font-semibold text-sm uppercase tracking-wider mb-4">
           Depoimentos
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="py-14 md:py-28">
+  <section id="contact" class="py-14 md:py-20">
     <div class="container px-6 sm:px-8">
       <div class="mx-auto max-w-2xl text-center mb-12 md:mb-16">
         <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 tech-border rounded-full">
@@ -8,10 +8,10 @@
         </div>
         
         <h2 class="text-4xl md:text-5xl font-black mb-6">
-          Pronto para <span class="gradient-text">revolucionar</span> seu evento?
+          Pronto para <span class="gradient-text">transformar</span> seu negócio?
         </h2>
-        <p class="text-lg text-muted-foreground">
-          Vamos conversar sobre como podemos transformar seu negócio em uma experiência digital única.
+        <p class="text-lg text-slate-500">
+          Vamos conversar sobre como podemos levar sua empresa para o próximo nível digital.
         </p>
       </div>
 
@@ -97,7 +97,7 @@
 
         <div class="relative rounded-xl border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-5 md:p-6">
           <div class="mb-6">
-            <h3 class="text-2xl font-semibold tracking-tight text-white">Vamos conversar</h3>
+            <h3 class="text-2xl font-semibold tracking-tight text-white">Como podemos te ajudar?</h3>
             <p class="text-slate-400">Conte rapidamente sobre seu projeto. Responderemos em poucas horas.</p>
           </div>
           <form class="space-y-5" @submit.prevent="handleSubmit">

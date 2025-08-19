@@ -1,20 +1,14 @@
 <template>
-  <section id="servicos" class="py-12 md:py-24 bg-slate-950">
+  <section id="servicos" class="pt-8 pb-12 md:pt-12 md:pb-16 bg-slate-950">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
       <!-- Header Section -->
-      <header class="max-w-4xl mx-auto text-center mb-8 md:mb-20">
+      <header class="max-w-4xl mx-auto text-center mb-8 md:mb-16">
         <div class="text-violet-400 font-semibold text-sm uppercase tracking-wider mb-4">
           Serviços
         </div>
-        
         <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-          Áreas de
-          <span class="text-violet-400 block">Atuação</span>
+          Áreas de <span class="text-violet-400">Atuação</span>
         </h2>
-        
-        <p class="text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
-          Serviços essenciais de consultoria digital: estratégia, engenharia e escala
-        </p>
       </header>
 
       <!-- Services Grid -->
