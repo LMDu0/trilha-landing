@@ -27,6 +27,17 @@ export default defineNuxtConfig({
     typeCheck: false
   },
 
+  // Runtime configuration
+  runtimeConfig: {
+    // Private keys (only available on server-side)
+    emailServiceUrl: process.env.EMAIL_SERVICE_URL || 'http://localhost:3000',
+    
+    // Public keys (exposed to client-side)
+    public: {
+      // Add public runtime config here if needed
+    }
+  },
+
   // Tailwind CSS configuration
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',

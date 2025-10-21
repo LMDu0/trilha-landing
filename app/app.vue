@@ -24,6 +24,9 @@
     
     <LandingFooter />
     <BackToTop />
+    
+    <!-- Global Toast Container -->
+    <ToastContainer />
   </div>
 </template>
 
@@ -36,4 +39,5 @@ import TestimonialSection from '../components/TestimonialSection.vue'
 import LandingContact from '../components/LandingContact.vue'
 import LandingFooter from '../components/LandingFooter.vue'
 import BackToTop from '../components/BackToTop.vue'
+import ToastContainer from '../components/ui/ToastContainer.vue'
 </script>

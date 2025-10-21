@@ -56,9 +56,6 @@ importers:
       embla-carousel:
         specifier: ^8.6.0
         version: 8.6.0
-      embla-carousel-wheel-gestures:
-        specifier: ^8.0.5
-        version: 8.0.5(embla-carousel@8.6.0)
       eslint:
         specifier: ^9.32.0
         version: 9.32.0(jiti@2.5.1)
@@ -89,6 +86,9 @@ importers:
       vue-router:
         specifier: ^4.5.1
         version: 4.5.1(vue@3.5.18(typescript@5.9.2))
+      vue-the-mask:
+        specifier: ^0.11.1
+        version: 0.11.1
 
 packages:
 
@@ -2732,12 +2732,6 @@ packages:
 
   electron-to-chromium@1.5.196:
     resolution: {integrity: sha512-FnnXV0dXANe7YNtKl/Af1raw+sBBUPuwcNEWfLOJyumXBvfQEBsnc0Gn+yEnVscq4x3makTtrlf4TjAo7lcXTQ==}
-
-  embla-carousel-wheel-gestures@8.0.5:
-    resolution: {integrity: sha512-x+5CXCAcYTRzSPfOnlzdCfgfTsrhTRExPeWQPwNtCqaotNwS6jBdGCUZZPX/pRzGc7E/r+BfJ/PKUmErftKV1w==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      embla-carousel: ^8.0.0 || ~8.0.0-rc03
 
   embla-carousel@8.6.0:
     resolution: {integrity: sha512-SjWyZBHJPbqxHOzckOfo8lHisEaJWmwd23XppYFYVh10bU66/Pn5tkVkbkCMZVdbUE5eTCI2nD8OyIP4Z+uwkA==}
@@ -5752,6 +5746,9 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
+  vue-the-mask@0.11.1:
+    resolution: {integrity: sha512-UquSfnSWejD0zAfcD+3jJ1chUAkOAyoxya9Lxh9acCRtrlmGcAIvd0cQYraWqKenbuZJUdum+S174atv2AuEHQ==}
+
   vue@3.5.18:
     resolution: {integrity: sha512-7W4Y4ZbMiQ3SEo+m9lnoNpV9xG7QVMLa+/0RFwwiAVkeYoyGXqWE85jabU4pllJNUzqfLShJ5YLptewhCWUgNA==}
     peerDependencies:
@@ -5775,10 +5772,6 @@ packages:
 
   whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
-
-  wheel-gestures@2.2.48:
-    resolution: {integrity: sha512-f+Gy33Oa5Z14XY9679Zze+7VFhbsQfBFXodnU2x589l4kxGM9L5Y8zETTmcMR5pWOPQyRv4Z0lNax6xCO0NSlA==}
-    engines: {node: '>=18'}
 
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -8871,11 +8864,6 @@ snapshots:
   ee-first@1.1.1: {}
 
   electron-to-chromium@1.5.196: {}
-
-  embla-carousel-wheel-gestures@8.0.5(embla-carousel@8.6.0):
-    dependencies:
-      embla-carousel: 8.6.0
-      wheel-gestures: 2.2.48
 
   embla-carousel@8.6.0: {}
 
@@ -12710,6 +12698,8 @@ snapshots:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.18(typescript@5.9.2)
 
+  vue-the-mask@0.11.1: {}
+
   vue@3.5.18(typescript@5.9.2):
     dependencies:
       '@vue/compiler-dom': 3.5.18
@@ -12732,8 +12722,6 @@ snapshots:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
-
-  wheel-gestures@2.2.48: {}
 
   which@2.0.2:
     dependencies:
