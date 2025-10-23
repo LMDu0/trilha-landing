@@ -10,7 +10,13 @@ export const useSectionTracking = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            trackSectionView(sectionName)
+            // Use requestIdleCallback to avoid blocking main thread
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(() => trackSectionView(sectionName))
+            } else {
+              setTimeout(() => trackSectionView(sectionName), 0)
+            }
+            observer.unobserve(entry.target) // Track once per session
           }
         })
       },

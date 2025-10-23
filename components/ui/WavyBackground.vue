@@ -46,6 +46,7 @@ let h = 0
 let nt = 0
 let ctx: CanvasRenderingContext2D | null = null
 let animationId = 0
+let lastFrameTime = 0
 
 const canvasRef = templateRef<HTMLCanvasElement | null>('canvasRef')
 
@@ -64,13 +65,16 @@ function init() {
     h = ctx.canvas.height = parent.clientHeight
   }
   ctx.filter = `blur(${props.blur}px)`
+  // Debounced resize handler to prevent excessive reflows
+  let resizeTimeout: ReturnType<typeof setTimeout>
   window.onresize = () => {
-    if (!ctx) return
-    if (parent) {
+    clearTimeout(resizeTimeout)
+    resizeTimeout = setTimeout(() => {
+      if (!ctx || !parent) return
       w = ctx.canvas.width = parent.clientWidth
       h = ctx.canvas.height = parent.clientHeight
-    }
-    ctx.filter = `blur(${props.blur}px)`
+      ctx.filter = `blur(${props.blur}px)`
+    }, 100) // Debounce resize events
   }
   render()
 }
@@ -81,7 +85,7 @@ function drawWave(n: number) {
   for (let i = 0; i < n; i++) {
     ctx.beginPath()
     ctx.lineWidth = props.waveWidth!
-    ctx.strokeStyle = props.colors![i % props.colors!.length]
+    ctx.strokeStyle = props.colors[i % props.colors.length] || '#8b5cf6'
     for (let x = 0; x < w; x += 5) {
       const y = noise(x / 800, 0.3 * i, nt) * 100
       ctx.lineTo(x, y + h * 0.5)
@@ -93,10 +97,19 @@ function drawWave(n: number) {
 
 function render() {
   if (!ctx) return
+  
+  // Performance optimization: limit to 30fps for background animation
+  const now = performance.now()
+  if (now - lastFrameTime < 33) { // ~30fps
+    animationId = requestAnimationFrame(render)
+    return
+  }
+  lastFrameTime = now
+  
   ctx.fillStyle = props.backgroundFill!
   ctx.globalAlpha = props.waveOpacity!
   ctx.fillRect(0, 0, w, h)
-  drawWave(5)
+  drawWave(3) // Reduce from 5 to 3 waves for better performance
   animationId = requestAnimationFrame(render)
 }
 
