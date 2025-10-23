@@ -80,8 +80,7 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
         { rel: 'dns-prefetch', href: 'https://trilha-mailer.vercel.app' },
         { rel: 'dns-prefetch', href: 'https://api.mixpanel.com' },
-        { rel: 'dns-prefetch', href: 'https://sentry.io' },
-        { rel: 'preload', href: '/Group 15.png', as: 'image' }
+        { rel: 'dns-prefetch', href: 'https://sentry.io' }
       ],
       script: [
         {

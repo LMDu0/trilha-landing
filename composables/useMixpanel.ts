@@ -17,7 +17,9 @@ export const useMixpanel = () => {
   // Initialize Mixpanel only on client side
   if (process.client && !mixpanelInstance && config.public.mixpanelToken) {
     mixpanel.init(config.public.mixpanelToken, {
-      debug: process.env.NODE_ENV === 'development',
+      debug: false, // Disable debug to reduce console noise
+      batch_requests: true,
+      batch_size: 50,
       track_pageview: true,
       persistence: 'localStorage'
     })
