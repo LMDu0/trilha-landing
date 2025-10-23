@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen bg-slate-950 text-white relative overflow-x-hidden">
+    <SeoHead />
     <NuxtRouteAnnouncer />
     
     <AppHeader />

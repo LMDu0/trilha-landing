@@ -1,22 +1,28 @@
 {
   "name": "Trilha Labs - Desenvolvimento de Software",
   "short_name": "Trilha Labs",
-  "description": "Aplicativos e plataformas sob medida para negócios que querem ir além",
+  "description": "Desenvolvimento de aplicativos para eventos, feiras e agronegócio",
   "icons": [
     {
       "src": "/images/favicon_io/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     },
     {
       "src": "/images/favicon_io/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable any"
     }
   ],
-  "theme_color": "#8b5cf6",
+  "theme_color": "#020617",
   "background_color": "#020617",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "start_url": "/",
-  "scope": "/"
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "technology"]
 }
