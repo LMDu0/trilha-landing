@@ -1,5 +1,6 @@
 <template>
-  <Head>
+  <ClientOnly>
+    <Head>
     <!-- Breadcrumb Structured Data -->
     <script type="application/ld+json">
       {
@@ -98,7 +99,8 @@
         }
       }
     </script>
-  </Head>
+    </Head>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">

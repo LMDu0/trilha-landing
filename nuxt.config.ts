@@ -51,7 +51,6 @@ export default defineNuxtConfig({
         // Performance & Security
         { name: 'referrer', content: 'strict-origin-when-cross-origin' },
         { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' },
-        { 'http-equiv': 'X-Frame-Options', content: 'DENY' },
         { 'http-equiv': 'X-XSS-Protection', content: '1; mode=block' },
         
         // PWA & Mobile
@@ -246,6 +245,15 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/sitemap.xml', '/']
+    },
+    routeRules: {
+      '/**': {
+        headers: {
+          'X-Frame-Options': 'DENY',
+          'X-Content-Type-Options': 'nosniff',
+          'Referrer-Policy': 'strict-origin-when-cross-origin'
+        }
+      }
     }
   },
 

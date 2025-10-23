@@ -1,13 +1,15 @@
 <template>
   <section class="relative min-h-[56vh] md:min-h-screen bg-slate-950 overflow-hidden">
-    <WavyBackground 
-      class="absolute inset-0 h-full"
-      :colors="['#8b5cf6', '#a855f7', '#c084fc']"
-      :background-fill="'#020617'"
-      :wave-opacity="0.3"
-      :blur="6"
-      speed="slow"
-    />
+    <ClientOnly>
+      <WavyBackground 
+        class="absolute inset-0 h-full"
+        :colors="['#8b5cf6', '#a855f7', '#c084fc']"
+        :background-fill="'#020617'"
+        :wave-opacity="0.3"
+        :blur="6"
+        speed="slow"
+      />
+    </ClientOnly>
     <div class="container mx-auto px-6 sm:px-8 relative z-10">
       <!-- Layout assimétrico inspirado no Raycast -->
       <div class="grid lg:grid-cols-12 gap-8 md:gap-12 items-center md:min-h-[calc(100vh-4rem)] pt-12 pb-0 md:py-20">
