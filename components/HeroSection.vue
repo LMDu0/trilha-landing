@@ -1,7 +1,7 @@
 <template>
   <section class="relative min-h-[56vh] md:min-h-screen bg-slate-950 overflow-hidden">
     <ClientOnly>
-      <WavyBackground 
+      <LazyWavyBackground 
         class="absolute inset-0 h-full"
         :colors="['#8b5cf6', '#a855f7', '#c084fc']"
         :background-fill="'#020617'"
@@ -78,8 +78,10 @@
 
 <script setup lang="ts">
 import Button from './ui/Button.vue'
-import WavyBackground from './ui/WavyBackground.vue'
 import { useMixpanel } from '../composables/useMixpanel'
+
+// Lazy load heavy background component
+const LazyWavyBackground = defineAsyncComponent(() => import('./ui/WavyBackground.vue'))
 
 const { trackButtonClick } = useMixpanel()
 </script>

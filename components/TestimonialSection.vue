@@ -42,7 +42,7 @@
                   <div class="relative flex-shrink-0">
                     <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-violet-500/20 rotate-3">
                       <img 
-                        src="/images/client.png" 
+                        src="/images/client.webp" 
                         alt="Junior Moro"
                         class="w-full h-full object-cover"
                       />
@@ -84,7 +84,7 @@
                   <div class="relative w-fit mx-auto lg:mx-0">
                     <div class="w-32 h-32 rounded-2xl overflow-hidden border-2 border-violet-500/20 rotate-3 hover:rotate-0 transition-transform duration-500">
                       <img 
-                        src="/images/client.png" 
+                        src="/images/client.webp" 
                         alt="Junior Moro"
                         class="w-full h-full object-cover"
                       />

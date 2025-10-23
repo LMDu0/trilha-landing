@@ -11,12 +11,12 @@
       <div class="relative z-10" ref="servicesRef">
         <ServicesSection />
       </div>
-      <div class="relative z-10" ref="projectsRef">
-        <ProjectsSection />
-      </div>
-      <div class="relative z-10" ref="testimonialsRef">
-        <TestimonialSection />
-      </div>
+        <div class="relative z-10" ref="projectsRef">
+          <LazyProjectsSection />
+        </div>
+        <div class="relative z-10" ref="testimonialsRef">
+          <LazyTestimonialSection />
+        </div>
       <div class="relative z-10" ref="contactRef">
         <LandingContact />
       </div>
@@ -34,8 +34,9 @@
 import AppHeader from '../components/AppHeader.vue'
 import HeroSection from '../components/HeroSection.vue'
 import ServicesSection from '../components/ServicesSection.vue'
-import ProjectsSection from '../components/ProjectsSection.vue'
-import TestimonialSection from '../components/TestimonialSection.vue'
+// Lazy load heavy components
+const LazyProjectsSection = defineAsyncComponent(() => import('../components/ProjectsSection.vue'))
+const LazyTestimonialSection = defineAsyncComponent(() => import('../components/TestimonialSection.vue'))
 import LandingContact from '../components/LandingContact.vue'
 import LandingFooter from '../components/LandingFooter.vue'
 import BackToTop from '../components/BackToTop.vue'

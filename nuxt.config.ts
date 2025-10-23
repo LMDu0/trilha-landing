@@ -19,6 +19,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'pt-BR'
+      },
       title: 'Trilha Labs - Desenvolvimento de Software Sob Medida',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
@@ -264,10 +267,11 @@ export default defineNuxtConfig({
     payloadExtraction: false
   },
 
+
   // Image optimization
   image: {
     format: ['webp', 'avif', 'png', 'jpg'],
-    quality: 80,
+    quality: 70,
     screens: {
       xs: 320,
       sm: 640,
@@ -275,6 +279,33 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       xxl: 1536,
+    },
+    // Aggressive optimization for SVGs
+    svg: {
+      size: false
+    },
+    densities: [1, 2],
+    // Presets for different use cases
+    presets: {
+      mockup: {
+        modifiers: {
+          format: 'webp',
+          quality: 60,
+          width: 450,
+          height: 580
+        }
+      }
+    }
+  },
+
+  // CSS optimization
+  postcss: {
+    plugins: {
+      'postcss-import': {},
+      'tailwindcss/nesting': {},
+      tailwindcss: {},
+      autoprefixer: {},
+      ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
     }
   },
 
