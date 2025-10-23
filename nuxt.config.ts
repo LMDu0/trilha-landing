@@ -284,18 +284,7 @@ export default defineNuxtConfig({
     svg: {
       size: false
     },
-    densities: [1, 2],
-    // Presets for different use cases
-    presets: {
-      mockup: {
-        modifiers: {
-          format: 'webp',
-          quality: 60,
-          width: 450,
-          height: 580
-        }
-      }
-    }
+    densities: [1, 2]
   },
 
   // CSS optimization

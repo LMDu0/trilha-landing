@@ -13,9 +13,8 @@
               :src="card.image" 
               :alt="card.title"
               class="w-full h-full object-contain"
-              width="400"
-              height="300"
-              preset="mockup"
+              format="webp"
+              quality="80"
               loading="lazy"
               placeholder
             />
@@ -37,10 +36,9 @@
               <NuxtImg 
                 :src="card.image" 
                 :alt="card.title"
-                width="450"
-                height="580"
                 class="w-full h-full object-contain"
-                preset="mockup"
+                format="webp"
+                quality="80"
                 loading="lazy"
                 placeholder
               />

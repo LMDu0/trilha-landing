@@ -79,16 +79,40 @@
                         :class="{ 'text-violet-400': whatsappButtonClicked }"
                       />
                     </button>
-                    <WhatsAppButton
-                      message="Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços."
-                      text="Conversar no WhatsApp"
-                      variant="pill"
-                      size="sm"
-                      :show-text="true"
-                      tracking-action="open_whatsapp"
-                      tracking-context="contact_info"
-                    />
-                  </div>
+                     <WhatsAppButton
+                       message="Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços."
+                       text="Conversar no WhatsApp"
+                       variant="pill"
+                       size="sm"
+                       :show-text="true"
+                       tracking-action="open_whatsapp"
+                       tracking-context="contact_info"
+                     />
+                   </div>
+                   
+                   <!-- Social Links -->
+                   <div class="flex items-center gap-3">
+                     <a
+                       href="https://linkedin.com/company/trilha-labs"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200 active:scale-95"
+                       aria-label="LinkedIn da Trilha Labs"
+                       @click="trackContactAction('open_linkedin', 'social_link')"
+                     >
+                       <Icon name="lucide:linkedin" class="h-4 w-4 text-slate-400 hover:text-blue-400 transition-colors" />
+                     </a>
+                     <a
+                       href="https://instagram.com/trilhalabs"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-pink-500/50 hover:bg-pink-500/10 transition-all duration-200 active:scale-95"
+                       aria-label="Instagram da Trilha Labs"
+                       @click="trackContactAction('open_instagram', 'social_link')"
+                     >
+                       <Icon name="lucide:instagram" class="h-4 w-4 text-slate-400 hover:text-pink-400 transition-colors" />
+                     </a>
+                   </div>
                 </div>
               </div>
               
@@ -153,17 +177,30 @@
                 class="w-full rounded-lg bg-slate-950/70 border border-slate-800/70 px-5 py-4 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30"></textarea>
             </div>
 
-            <!-- Status message -->
-            <div v-if="submitMessage" class="p-4 rounded-lg border" :class="{
-              'bg-green-500/10 border-green-500/20 text-green-400': submitStatus === 'success',
-              'bg-red-500/10 border-red-500/20 text-red-400': submitStatus === 'error'
-            }">
-              <div class="flex items-center gap-2">
-                <Icon v-if="submitStatus === 'success'" name="lucide:check-circle" class="w-4 h-4" />
-                <Icon v-if="submitStatus === 'error'" name="lucide:alert-circle" class="w-4 h-4" />
-                <span class="text-sm">{{ submitMessage }}</span>
-              </div>
-            </div>
+             <!-- Status message -->
+             <div v-if="submitMessage" class="p-4 rounded-lg border" :class="{
+               'bg-green-500/10 border-green-500/20 text-green-400': submitStatus === 'success',
+               'bg-red-500/10 border-red-500/20 text-red-400': submitStatus === 'error'
+             }">
+               <div class="flex items-start gap-3">
+                 <Icon v-if="submitStatus === 'success'" name="lucide:check-circle" class="w-4 h-4 mt-0.5 flex-shrink-0" />
+                 <Icon v-if="submitStatus === 'error'" name="lucide:alert-circle" class="w-4 h-4 mt-0.5 flex-shrink-0" />
+                 <div class="flex-1">
+                   <p class="text-sm mb-4">{{ submitMessage }}</p>
+                   <!-- WhatsApp button only for submission errors, not validation errors -->
+                   <WhatsAppButton
+                     v-if="submitStatus === 'error' && !submitMessage.includes('preencha') && !submitMessage.includes('insira')"
+                     message="Olá! Tive problemas para enviar o formulário no site. Gostaria de conversar sobre os serviços da Trilha Labs."
+                     text="Conversar no WhatsApp"
+                     variant="pill"
+                     size="md"
+                     :show-text="true"
+                     tracking-action="open_whatsapp_fallback"
+                     tracking-context="error_message"
+                   />
+                 </div>
+               </div>
+             </div>
 
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <p class="text-xs text-slate-500">
@@ -185,29 +222,7 @@
                 </span>
               </Button>
             </div>
-          </form>
-          
-          <!-- Error message with WhatsApp fallback -->
-          <div v-if="submitStatus === 'error'" class="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
-            <div class="flex items-start gap-3">
-              <Icon name="lucide:alert-circle" class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
-              <div class="flex-1">
-                <p class="text-red-400 text-sm mb-3">{{ submitMessage }}</p>
-                <p class="text-slate-400 text-xs mb-3">
-                  Problema no envio? Fale conosco diretamente pelo WhatsApp:
-                </p>
-                <WhatsAppButton
-                  message="Olá! Tive problemas para enviar o formulário no site. Gostaria de conversar sobre os serviços da Trilha Labs."
-                  text="Conversar no WhatsApp"
-                  variant="pill"
-                  size="md"
-                  :show-text="true"
-                  tracking-action="open_whatsapp_fallback"
-                  tracking-context="error_message"
-                />
-              </div>
-            </div>
-          </div>
+           </form>
         </div>
       </div>
     </div>
@@ -324,13 +339,8 @@ async function handleSubmit() {
       }
     })
     
-    let errorMessage = 'Erro ao enviar mensagem. Tente novamente.'
-    
-    if (error.data?.statusMessage) {
-      errorMessage = error.data.statusMessage
-    } else if (error.message) {
-      errorMessage = error.message
-    }
+    // Always show user-friendly message, log technical details to Sentry
+    const errorMessage = 'Ops! Não conseguimos enviar sua mensagem no momento. Que tal falar conosco diretamente pelo WhatsApp?'
     
     const duration = Date.now() - startTime
     showMessage(errorMessage, 'error')
