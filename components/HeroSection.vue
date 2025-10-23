@@ -36,6 +36,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="bg-violet-500 hover:bg-violet-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-2xl shadow-violet-500/25 border border-violet-400/20"
+              @click="trackButtonClick('cta_whatsapp', 'hero')"
             >
               <span class="inline-flex items-center gap-2">
                 <Icon name="lucide:message-circle" class="w-5 h-5" />
@@ -48,6 +49,7 @@
               size="lg"
               class="border-slate-600/50 text-slate-200 hover:text-white hover:border-violet-400/50 px-8 py-4 rounded-xl transition-all duration-300 hover:bg-slate-800/50 backdrop-blur-sm"
               as="a" href="#cases"
+              @click="trackButtonClick('view_cases', 'hero')"
             >
               Ver nossos cases
               <Icon name="lucide:play" class="w-5 h-5 ml-2" />
@@ -75,4 +77,7 @@
 <script setup lang="ts">
 import Button from './ui/Button.vue'
 import WavyBackground from './ui/WavyBackground.vue'
+import { useMixpanel } from '../composables/useMixpanel'
+
+const { trackButtonClick } = useMixpanel()
 </script>

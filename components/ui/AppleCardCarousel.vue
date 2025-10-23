@@ -100,6 +100,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import EmblaCarousel, { type EmblaCarouselType } from 'embla-carousel'
+import { useMixpanel } from '../../composables/useMixpanel'
+
+const { trackSliderInteraction } = useMixpanel()
 
 interface AppleCard {
   id: string
@@ -136,16 +139,19 @@ let autoPlayInterval: NodeJS.Timeout | null = null
 function scrollToSlide(index: number) {
   mobileEmbla?.scrollTo(index)
   desktopEmbla?.scrollTo(index)
+  trackSliderInteraction('case_study_carousel', index)
 }
 
 function scrollNext() {
   mobileEmbla?.scrollNext()
   desktopEmbla?.scrollNext()
+  trackSliderInteraction('case_study_carousel', activeIndex.value + 1)
 }
 
 function scrollPrev() {
   mobileEmbla?.scrollPrev()
   desktopEmbla?.scrollPrev()
+  trackSliderInteraction('case_study_carousel', activeIndex.value - 1)
 }
 
 function onSelect() {

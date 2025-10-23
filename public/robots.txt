@@ -1,2 +1,14 @@
-User-Agent: *
-Disallow:
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://trilhalabs.com.br/sitemap.xml
+Sitemap: https://vempratrilha.com.br/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Block common bot paths (if any)
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /admin/

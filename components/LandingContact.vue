@@ -79,16 +79,15 @@
                         :class="{ 'text-violet-400': whatsappButtonClicked }"
                       />
                     </button>
-                    <a
-                      href="https://wa.me/5554984028606?text=Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-green-600/50 bg-green-600/10 hover:bg-green-600/20 transition-all duration-300 text-green-400 hover:text-green-300"
-                      aria-label="Conversar no WhatsApp"
-                    >
-                      <Icon name="lucide:message-circle" class="h-4 w-4" />
-                      <span class="text-xs font-medium">Conversar no WhatsApp</span>
-                    </a>
+                    <WhatsAppButton
+                      message="Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços."
+                      text="Conversar no WhatsApp"
+                      variant="pill"
+                      size="sm"
+                      :show-text="true"
+                      tracking-action="open_whatsapp"
+                      tracking-context="contact_info"
+                    />
                   </div>
                 </div>
               </div>
@@ -118,20 +117,13 @@
             <p class="text-slate-400">Conte rapidamente sobre seu projeto. Responderemos em poucas horas.</p>
           </div>
           <form class="space-y-5" @submit.prevent="handleSubmit">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="space-y-1">
                 <label class="text-sm text-slate-300">Nome</label>
-                <input v-model="form.name" type="text" placeholder="Seu nome (opcional)"
+              <input v-model="form.name" type="text" placeholder="Seu nome (opcional)"
                   class="h-12 w-full rounded-lg bg-slate-950/70 border border-slate-800/70 px-5 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30"/>
               </div>
-              <div class="space-y-1">
-                <label class="text-sm text-slate-300">Email</label>
-                <input v-model="form.email" type="email" placeholder="seu@email.com (opcional)"
-                  class="h-12 w-full rounded-lg bg-slate-950/70 border border-slate-800/70 px-5 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30"/>
-              </div>
-            </div>
 
-            <div class="space-y-1">
+              <div class="space-y-1">
               <label class="text-sm text-slate-300">Telefone <span class="text-red-400">*</span></label>
               <div class="relative">
                 <input 
@@ -194,6 +186,28 @@
               </Button>
             </div>
           </form>
+          
+          <!-- Error message with WhatsApp fallback -->
+          <div v-if="submitStatus === 'error'" class="mt-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+            <div class="flex items-start gap-3">
+              <Icon name="lucide:alert-circle" class="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+              <div class="flex-1">
+                <p class="text-red-400 text-sm mb-3">{{ submitMessage }}</p>
+                <p class="text-slate-400 text-xs mb-3">
+                  Problema no envio? Fale conosco diretamente pelo WhatsApp:
+                </p>
+                <WhatsAppButton
+                  message="Olá! Tive problemas para enviar o formulário no site. Gostaria de conversar sobre os serviços da Trilha Labs."
+                  text="Conversar no WhatsApp"
+                  variant="pill"
+                  size="md"
+                  :show-text="true"
+                  tracking-action="open_whatsapp_fallback"
+                  tracking-context="error_message"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -203,12 +217,14 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import Button from './ui/Button.vue'
+import WhatsAppButton from './ui/WhatsAppButton.vue'
 import type { ContactFormData, EmailResponse } from '../types/contact'
 import { useToast } from '../composables/useToast'
+import { useMixpanel } from '../composables/useMixpanel'
+import * as Sentry from '@sentry/nuxt'
 
 const form = reactive<ContactFormData>({
   name: '',
-  email: '',
   phone: '',
   company: '',
   projectType: '',
@@ -222,6 +238,9 @@ const submitStatus = ref<'success' | 'error' | null>(null)
 // Toast system
 const { success: showSuccessToast, error: showErrorToast } = useToast()
 
+// Mixpanel tracking
+const { trackFormSubmit, trackContactAction, trackError } = useMixpanel()
+
 // Button animation states
 const emailButtonClicked = ref(false)
 const whatsappButtonClicked = ref(false)
@@ -229,10 +248,13 @@ const whatsappButtonClicked = ref(false)
 async function handleSubmit() {
   if (isSubmitting.value) return
   
+  let startTime = 0
+  
   try {
     // Basic validation - only phone and message are required
     if (!form.phone || !form.message) {
       showMessage('Por favor, preencha os campos obrigatórios: telefone e mensagem.', 'error')
+      trackError('Form Validation', 'Missing required fields', 'contact_form')
       return
     }
 
@@ -240,27 +262,22 @@ async function handleSubmit() {
     const phoneClean = form.phone.replace(/\D/g, '')
     if (phoneClean.length < 10) {
       showMessage('Por favor, insira um telefone válido com DDD. Ex: (54) 99999-9999', 'error')
+      trackError('Form Validation', 'Invalid phone number', 'contact_form')
       return
     }
-
-    // Email validation (only if provided)
-    if (form.email && form.email.trim()) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(form.email)) {
-        showMessage('Por favor, insira um email válido.', 'error')
-        return
-      }
-    }
+    
 
     isSubmitting.value = true
     submitMessage.value = ''
+    
+    // Track form submission attempt
+    startTime = Date.now()
     
     // Send email through API
     const response = await $fetch<EmailResponse>('/api/contact/send', {
       method: 'POST',
       body: {
         name: form.name || undefined,
-        email: form.email || undefined,
         phone: form.phone,
         company: form.company || undefined,
         projectType: form.projectType || undefined,
@@ -269,22 +286,43 @@ async function handleSubmit() {
     })
 
     if (response.success) {
+      const duration = Date.now() - startTime
       showMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success')
-      
-      // Reset form after success
-      Object.assign(form, {
-        name: '',
-        email: '',
+      trackFormSubmit('contact_form', true, undefined, {
+        duration_ms: duration,
+        has_name: !!form.name,
+        has_company: !!form.company,
+        has_project_type: !!form.projectType,
+        message_length: form.message.length
+      })
+    
+    // Reset form after success
+    Object.assign(form, {
+      name: '',
         phone: '',
-        company: '',
-        projectType: '',
+      company: '',
+      projectType: '',
         message: 'Olá! Gostaria de saber mais sobre os serviços da Trilha Labs e como vocês podem ajudar meu negócio a crescer digitalmente.'
       })
     } else {
       throw new Error(response.message || 'Erro desconhecido')
     }
   } catch (error: any) {
-    console.error('Error sending contact form:', error)
+    // Log error to Sentry
+    Sentry.captureException(error, {
+      tags: {
+        section: 'contact_form'
+      },
+      extra: {
+        form_data: {
+          has_name: !!form.name,
+          has_company: !!form.company,
+          has_project_type: !!form.projectType,
+          message_length: form.message.length,
+          phone_length: form.phone.length
+        }
+      }
+    })
     
     let errorMessage = 'Erro ao enviar mensagem. Tente novamente.'
     
@@ -294,7 +332,16 @@ async function handleSubmit() {
       errorMessage = error.message
     }
     
+    const duration = Date.now() - startTime
     showMessage(errorMessage, 'error')
+    trackFormSubmit('contact_form', false, errorMessage, {
+      duration_ms: duration,
+      has_name: !!form.name,
+      has_company: !!form.company,
+      has_project_type: !!form.projectType,
+      message_length: form.message.length
+    })
+    trackError('Form Submit', errorMessage, 'contact_form')
   } finally {
     isSubmitting.value = false
   }
@@ -384,8 +431,10 @@ async function copyEmailContact() {
   try {
     await navigator.clipboard.writeText('contato@trilhalabs.com.br')
     showSuccessToast('Email copiado!')
+    trackContactAction('copy_email', 'clipboard')
   } catch {
     showErrorToast('Erro ao copiar email')
+    trackError('Copy Action', 'Failed to copy email', 'contact_info')
   }
 }
 
@@ -399,8 +448,11 @@ async function copyWhatsappContact() {
   try {
     await navigator.clipboard.writeText('(54) 98402-8606')
     showSuccessToast('Telefone copiado!')
+    trackContactAction('copy_whatsapp', 'clipboard')
   } catch {
     showErrorToast('Erro ao copiar telefone')
+    trackError('Copy Action', 'Failed to copy whatsapp', 'contact_info')
   }
 }
+
 </script>

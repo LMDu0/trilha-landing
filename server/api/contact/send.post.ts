@@ -22,16 +22,6 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    // Email validation (only if provided)
-    if (body.email && body.email.trim()) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(body.email)) {
-        throw createError({
-          statusCode: 400,
-          statusMessage: 'Invalid email format'
-        })
-      }
-    }
 
     // Send email through microservice
     const response = await sendContactEmail(body)
