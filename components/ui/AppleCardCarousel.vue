@@ -9,10 +9,14 @@
             :key="card.id"
             class="flex-none w-full h-full"
           >
-            <img 
+            <NuxtImg 
               :src="card.image" 
               :alt="card.title"
               class="w-full h-full object-contain"
+              width="400"
+              height="300"
+              format="webp"
+              quality="80"
             />
           </div>
         </div>
@@ -29,10 +33,14 @@
             class="flex-none w-full flex justify-center"
           >
             <div class="w-[450px] h-[580px] relative overflow-hidden rounded-lg">
-              <img 
+              <NuxtImg 
                 :src="card.image" 
                 :alt="card.title"
+                width="450"
+                height="580"
                 class="w-full h-full object-contain"
+                format="webp"
+                quality="80"
               />
             </div>
           </div>

@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/icon',
+    '@nuxt/image',
     '@vueuse/motion/nuxt',
     '@sentry/nuxt/module',
     '@nuxtjs/sitemap'
@@ -76,11 +77,10 @@ export default defineNuxtConfig({
         
         // Performance optimizations
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
         { rel: 'dns-prefetch', href: 'https://trilha-mailer.vercel.app' },
         { rel: 'dns-prefetch', href: 'https://api.mixpanel.com' },
         { rel: 'dns-prefetch', href: 'https://sentry.io' },
-        { rel: 'preload', href: '/og-image.jpg', as: 'image' },
         { rel: 'preload', href: '/Group 15.png', as: 'image' }
       ],
       script: [
@@ -259,14 +259,46 @@ export default defineNuxtConfig({
 
   // Enable SSG mode
   ssr: true,
-  
-  // Generate static files
-  generate: {
-    routes: ['/']
-  },
 
   // Optimize for static generation
   experimental: {
     payloadExtraction: false
+  },
+
+  // Image optimization
+  image: {
+    format: ['webp', 'avif', 'png', 'jpg'],
+    quality: 80,
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    }
+  },
+
+  // Vite optimizations for bundle size
+  vite: {
+    build: {
+      target: 'es2020', // Modern JS target to reduce polyfills
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Separate vendor chunks
+            'vendor-vue': ['vue', 'vue-router'],
+            'vendor-utils': ['@vueuse/core', '@vueuse/motion'],
+            'vendor-ui': ['embla-carousel', 'gsap', 'three'],
+            'vendor-analytics': ['mixpanel-browser'],
+          }
+        }
+      },
+      // Reduce chunk size warning limit
+      chunkSizeWarningLimit: 1000
+    },
+    esbuild: {
+      target: 'es2020' // Also for esbuild
+    }
   }
 })
