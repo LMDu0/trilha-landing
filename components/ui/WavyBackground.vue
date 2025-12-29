@@ -86,10 +86,17 @@ function drawWave(n: number) {
     ctx.beginPath()
     ctx.lineWidth = props.waveWidth!
     ctx.strokeStyle = props.colors[i % props.colors.length] || '#8b5cf6'
-    for (let x = 0; x < w; x += 5) {
+    
+    // Start from first point
+    const firstY = noise(0 / 800, 0.3 * i, nt) * 100
+    ctx.moveTo(0, firstY + h * 0.5)
+    
+    // Draw the wave
+    for (let x = 5; x < w; x += 5) {
       const y = noise(x / 800, 0.3 * i, nt) * 100
       ctx.lineTo(x, y + h * 0.5)
     }
+    
     ctx.stroke()
     ctx.closePath()
   }
@@ -106,10 +113,21 @@ function render() {
   }
   lastFrameTime = now
   
+  // Clear canvas completely
+  ctx.clearRect(0, 0, w, h)
+  
+  // Draw background with full opacity
+  ctx.globalAlpha = 1
   ctx.fillStyle = props.backgroundFill!
-  ctx.globalAlpha = props.waveOpacity!
   ctx.fillRect(0, 0, w, h)
+  
+  // Draw waves with specified opacity
+  ctx.globalAlpha = props.waveOpacity!
   drawWave(3) // Reduce from 5 to 3 waves for better performance
+  
+  // Reset globalAlpha back to 1 for next frame
+  ctx.globalAlpha = 1
+  
   animationId = requestAnimationFrame(render)
 }
 

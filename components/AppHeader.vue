@@ -3,12 +3,12 @@
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
     :class="[
       isScrolled 
-        ? 'bg-slate-950/95 backdrop-blur-md border-b border-slate-800/50 shadow-2xl' 
+        ? 'glass-card border-b border-slate-800/50 shadow-2xl' 
         : 'bg-transparent border-b border-transparent'
     ]"
   >
     <div class="container mx-auto px-6 sm:px-8">
-      <div class="flex items-center justify-between h-24 md:h-20">
+      <div class="flex items-center justify-between h-20 md:h-18">
         
         <!-- Logo -->
         <div class="flex items-center gap-3">
@@ -16,27 +16,30 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#servicos" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">
+        <nav class="hidden md:flex items-center gap-10">
+          <a href="#servicos" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
             Serviços
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#cases" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">
+          <a href="#cases" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
             Cases
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#contact" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">
+          <a href="#contact" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
             Contato
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
           </a>
         </nav>
 
         <!-- CTA -->
         <a 
-          href="https://wa.me/5554984028606"
+          href="https://wa.me/555493503203?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
           target="_blank"
           rel="noopener noreferrer"
-          class="hidden md:inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-300"
+          class="hidden md:inline-flex items-center gap-2 btn-premium bg-violet-500 hover:bg-violet-600 text-white font-medium px-6 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 glow-violet"
         >
           <Icon name="lucide:message-circle" class="w-4 h-4" />
-          Conversar
+          <span>Conversar</span>
         </a>
 
         <!-- Mobile menu button -->
@@ -77,7 +80,7 @@
             Contato
           </a>
           <a 
-            href="https://wa.me/5554984028606"
+            href="https://wa.me/555493503203?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 bg-violet-500 hover:bg-violet-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-300 mt-4"

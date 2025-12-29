@@ -81,6 +81,7 @@ export default defineNuxtConfig({
         // Performance optimizations
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap' },
         { rel: 'dns-prefetch', href: 'https://trilha-mailer.vercel.app' },
         { rel: 'dns-prefetch', href: 'https://api.mixpanel.com' },
         { rel: 'dns-prefetch', href: 'https://sentry.io' }
@@ -97,7 +98,7 @@ export default defineNuxtConfig({
             "logo": "https://trilhalabs.com.br/og-image.jpg",
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+55-54-98402-8606",
+              "telephone": "+55-54-9-3503-3203",
               "contactType": "customer service",
               "availableLanguage": "Portuguese"
             },
@@ -106,7 +107,7 @@ export default defineNuxtConfig({
               "addressCountry": "BR"
             },
             "sameAs": [
-              "https://wa.me/5554984028606",
+              "https://wa.me/555493503203",
               "https://vempratrilha.com.br"
             ],
             "serviceArea": {
@@ -133,7 +134,7 @@ export default defineNuxtConfig({
             "url": "https://trilhalabs.com.br",
             "logo": "https://trilhalabs.com.br/og-image.jpg",
             "image": "https://trilhalabs.com.br/og-image.jpg",
-            "telephone": "+55-54-98402-8606",
+            "telephone": "+55-54-9-3503-3203",
             "email": "contato@trilhalabs.com.br",
             "address": {
               "@type": "PostalAddress",
@@ -158,7 +159,7 @@ export default defineNuxtConfig({
             "paymentAccepted": "Cash, Credit Card, Bank Transfer",
             "openingHours": "Mo-Fr 08:00-18:00",
             "sameAs": [
-              "https://wa.me/5554984028606",
+              "https://wa.me/555493503203",
               "https://vempratrilha.com.br"
             ],
             "hasOfferCatalog": {

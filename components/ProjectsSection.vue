@@ -91,33 +91,73 @@
       </div>
 
       <!-- Resultados Alcançados -->
-      <div class="mt-16 md:mt-24 text-center">
-        <div class="inline-flex items-center gap-3 mb-8">
-          <div class="w-8 h-1 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full"></div>
-          <h3 class="text-3xl font-bold text-white">Resultados Alcançados</h3>
-          <div class="w-8 h-1 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full"></div>
-        </div>
-
-        <!-- Metrics - Horizontal flow -->
-        <div class="flex flex-wrap justify-center gap-8 mb-12">
-          <div 
-            v-for="(metric, index) in metrics"
-            :key="metric.label"
-            class="group"
-          >
-            <div class="text-5xl font-bold text-violet-400 mb-2 group-hover:scale-110 transition-transform">
-              {{ metric.value }}
-            </div>
-            <div class="text-slate-400 text-sm uppercase tracking-wider">{{ metric.label }}</div>
+      <div class="mt-16 md:mt-24">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <div class="w-8 h-1 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full"></div>
+            <h3 class="text-3xl font-bold text-white">Resultados Alcançados</h3>
+            <div class="w-8 h-1 bg-gradient-to-r from-violet-500 to-violet-600 rounded-full"></div>
           </div>
         </div>
 
-        <!-- Key achievement - Banner style -->
-        <div class="max-w-4xl mx-auto bg-gradient-to-r from-violet-500/10 via-violet-500/5 to-violet-500/10 border-l-4 border-r-4 border-violet-500 p-8 backdrop-blur-sm">
-          <p class="text-slate-200 text-lg">
-            <span class="text-violet-400 font-bold">+3.000 cliques</span> em anúncios patrocinados e
-            <span class="text-violet-400 font-bold">14 sessões por usuário</span> em média durante o evento
-          </p>
+        <!-- Grid de métricas - 2 colunas -->
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+          
+          <!-- Engajamento -->
+          <div class="glass-card rounded-2xl p-6 md:p-8 border-l border-violet-500/50">
+            <h4 class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Engajamento muito acima da média</h4>
+            <div class="space-y-3 md:space-y-4">
+              <div class="flex items-center gap-2 md:gap-3">
+                <div class="text-3xl md:text-4xl font-bold text-violet-400">14</div>
+                <span class="text-sm md:text-base text-slate-300">sessões por usuário</span>
+              </div>
+              <p class="text-xs md:text-sm text-slate-400 mt-2 md:mt-3">
+                Visitantes retornaram ao app repetidamente durante o evento
+              </p>
+            </div>
+          </div>
+
+          <!-- Visibilidade -->
+          <div class="glass-card rounded-2xl p-6 md:p-8 border-l border-violet-500/50">
+            <h4 class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Visibilidade para patrocinadores</h4>
+            <div class="space-y-3 md:space-y-4">
+              <div class="flex items-center gap-2 md:gap-3">
+                <div class="text-3xl md:text-4xl font-bold text-violet-400">205.000</div>
+                <span class="text-sm md:text-base text-slate-300">visualizações de telas</span>
+              </div>
+              <div class="flex items-center gap-2 md:gap-3">
+                <div class="text-3xl md:text-4xl font-bold text-violet-400">+3.000</div>
+                <span class="text-sm md:text-base text-slate-300">cliques em anúncios patrocinados</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interação -->
+          <div class="glass-card rounded-2xl p-6 md:p-8 border-l border-violet-500/50">
+            <h4 class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Interação durante o evento</h4>
+            <div class="space-y-3 md:space-y-4">
+              <div class="flex items-center gap-2 md:gap-3">
+                <div class="text-3xl md:text-4xl font-bold text-violet-400">+20.000</div>
+                <span class="text-sm md:text-base text-slate-300">giros na roleta e ações gamificadas</span>
+              </div>
+              <div class="flex items-center gap-2 md:gap-3">
+                <div class="text-2xl md:text-3xl font-bold text-violet-400">185</div>
+                <span class="text-sm md:text-base text-slate-300">prêmios distribuídos</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Adoção -->
+          <div class="glass-card rounded-2xl p-6 md:p-8 border-l border-violet-500/50">
+            <h4 class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Adoção massiva</h4>
+            <div class="space-y-3 md:space-y-4">
+              <div class="flex items-center gap-2 md:gap-3">
+                <div class="text-3xl md:text-4xl font-bold text-violet-400">3.500</div>
+                <span class="text-sm md:text-base text-slate-300">usuários ativos explorando o app</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -161,11 +201,5 @@ const appScreens = [
   }
 ]
 
-// Métricas dos resultados
-const metrics = [
-  { value: '+20K', label: 'Giros na roleta' },
-  { value: '205K', label: 'Visualizações de telas' },
-  { value: '3.5K', label: 'Usuários ativos' },
-  { value: '185', label: 'Prêmios distribuídos' }
-]
+// Dados dos resultados agora estão inline no template
 </script>

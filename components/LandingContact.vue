@@ -45,7 +45,7 @@
                       />
                     </button>
                     <a
-                      href="mailto:contato@trilhalabs.com.br"
+                      href="mailto:contato@trilhalabs.com.br?subject=Contato%20pelo%20site&body=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
                       class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors"
                       aria-label="Abrir no e-mail"
                     >
@@ -61,7 +61,7 @@
                 </div>
                 <div>
                   <p class="font-medium text-white">WhatsApp</p>
-                  <p class="text-violet-400 font-mono">(54) 98402-8606</p>
+                  <p class="text-violet-400 font-mono">(54) 9 3503-3203</p>
                   <div class="flex items-center gap-2 mt-2">
                     <button
                       type="button"
@@ -79,40 +79,40 @@
                         :class="{ 'text-violet-400': whatsappButtonClicked }"
                       />
                     </button>
-                     <WhatsAppButton
-                       message="Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços."
-                       text="Conversar no WhatsApp"
-                       variant="pill"
-                       size="sm"
-                       :show-text="true"
-                       tracking-action="open_whatsapp"
-                       tracking-context="contact_info"
-                     />
-                   </div>
-                   
-                   <!-- Social Links -->
-                   <div class="flex items-center gap-3">
-                     <a
-                       href="https://linkedin.com/company/trilha-labs"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200 active:scale-95"
-                       aria-label="LinkedIn da Trilha Labs"
-                       @click="trackContactAction('open_linkedin', 'social_link')"
-                     >
-                       <Icon name="lucide:linkedin" class="h-4 w-4 text-slate-400 hover:text-blue-400 transition-colors" />
-                     </a>
-                     <a
-                       href="https://instagram.com/trilhalabs"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-pink-500/50 hover:bg-pink-500/10 transition-all duration-200 active:scale-95"
-                       aria-label="Instagram da Trilha Labs"
-                       @click="trackContactAction('open_instagram', 'social_link')"
-                     >
-                       <Icon name="lucide:instagram" class="h-4 w-4 text-slate-400 hover:text-pink-400 transition-colors" />
-                     </a>
-                   </div>
+                    <WhatsAppButton
+                      message="Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços."
+                      text="Conversar no WhatsApp"
+                      variant="pill"
+                      size="sm"
+                      :show-text="true"
+                      tracking-action="open_whatsapp"
+                      tracking-context="contact_info"
+                    />
+                  </div>
+                  
+                  <!-- Social Links -->
+                  <div class="flex items-center gap-3 mt-4">
+                    <a
+                      href="https://linkedin.com/company/trilha-labs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200 active:scale-95"
+                      aria-label="LinkedIn da Trilha Labs"
+                      @click="trackContactAction('open_linkedin', 'social_link')"
+                    >
+                      <Icon name="lucide:linkedin" class="h-4 w-4 text-slate-400 hover:text-blue-400 transition-colors" />
+                    </a>
+                    <a
+                      href="https://instagram.com/trilhalabs"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-pink-500/50 hover:bg-pink-500/10 transition-all duration-200 active:scale-95"
+                      aria-label="Instagram da Trilha Labs"
+                      @click="trackContactAction('open_instagram', 'social_link')"
+                    >
+                      <Icon name="lucide:instagram" class="h-4 w-4 text-slate-400 hover:text-pink-400 transition-colors" />
+                    </a>
+                  </div>
                 </div>
               </div>
               
@@ -128,9 +128,9 @@
               </div>
 
 
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
+              <a href="https://instagram.com/trilhalabs" target="_blank" rel="noopener noreferrer" class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
                 <Icon name="lucide:instagram" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" />
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -456,7 +456,7 @@ async function copyWhatsappContact() {
   }, 200)
   
   try {
-    await navigator.clipboard.writeText('(54) 98402-8606')
+    await navigator.clipboard.writeText('(54) 9 3503-3203')
     showSuccessToast('Telefone copiado!')
     trackContactAction('copy_whatsapp', 'clipboard')
   } catch {

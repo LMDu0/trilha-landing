@@ -28,7 +28,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  phone: '5554984028606',
+  phone: '555493503203',
   message: 'Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços.',
   text: 'Conversar no WhatsApp',
   variant: 'round',

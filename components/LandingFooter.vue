@@ -10,7 +10,7 @@
             </a>
 
 
-            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
+            <a href="https://instagram.com/trilhalabs" target="_blank" rel="noopener noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
               <Icon name="lucide:instagram" class="h-4 w-4" />
             </a>
           </div>
@@ -40,12 +40,12 @@
                 <Icon name="lucide:message-circle" class="h-4 w-4 text-violet-400" />
               </div>
               <a 
-                href="https://wa.me/5554984028606" 
+                href="https://wa.me/555493503203?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="text-slate-400 hover:text-violet-400 transition-colors"
               >
-                (54) 98402-8606
+                (54) 9 3503-3203
               </a>
             </li>
           </ul>
@@ -54,7 +54,7 @@
 
       <div class="border-t border-slate-800/60 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
         <p class="text-sm text-slate-500">
-          © 2025. Todos os direitos reservados. Por Trilha Labs.
+          © 2026. Todos os direitos reservados. Por Trilha Labs.
         </p>
       </div>
     </div>

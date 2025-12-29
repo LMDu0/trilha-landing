@@ -1,14 +1,20 @@
 <template>
-  <section id="servicos" class="pt-8 pb-12 md:pt-12 md:pb-16 bg-slate-950">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+  <section id="servicos" class="pt-16 pb-20 md:pt-24 md:pb-32 bg-slate-950 relative overflow-hidden">
+    <!-- Grid Pattern Background -->
+    <div class="absolute inset-0 grid-pattern opacity-20" />
+    
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
       <!-- Header Section -->
-      <header class="max-w-4xl mx-auto text-center mb-8 md:mb-16">
-        <div class="text-violet-400 font-semibold text-sm uppercase tracking-wider mb-4">
-          Serviços
+      <header class="max-w-4xl mx-auto text-center mb-12 md:mb-20">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-6">
+          <span class="text-sm font-medium text-violet-400">Serviços</span>
         </div>
-        <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-          Áreas de <span class="text-violet-400">Atuação</span>
+        <h2 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
+          Áreas de <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300">Atuação</span>
         </h2>
+        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light">
+          Soluções completas para transformar seu negócio digital
+        </p>
       </header>
 
       <!-- Services Grid -->
@@ -16,148 +22,99 @@
         <!-- Primeira linha: 4 cards -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-stretch mb-4 md:mb-6">
           <!-- E-commerce & Marketplace -->
-          <div class="relative group">
-            <GlowingEffect 
-              :disabled="false" 
-              :spread="30" 
-              :blur="5" 
-              :proximity="100"
-              variant="default"
-            />
-            <div class="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-slate-800/50 rounded-2xl p-4 md:p-6 hover:border-violet-500/30 transition-all duration-300 hover:scale-105 h-full flex flex-col">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:bg-violet-500/20 transition-colors">
-                <Icon name="lucide:shopping-cart" class="w-5 h-5 md:w-6 md:h-6 text-violet-400" />
+          <GlowBorder container-class="group h-full">
+            <div class="glass-card rounded-2xl p-6 md:p-8 h-full flex flex-col transition-all duration-300">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-violet-500/20 transition-all duration-300 group-hover:scale-110">
+                <Icon name="lucide:shopping-cart" class="w-6 h-6 md:w-7 md:h-7 text-violet-400" />
               </div>
-              <h3 class="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">E-commerce & Marketplace</h3>
-              <p class="text-sm text-slate-400 leading-relaxed flex-1">
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">E-commerce & Marketplace</h3>
+              <p class="text-sm md:text-base text-slate-400 leading-relaxed flex-1 font-light">
                 Plataformas de vendas online, marketplaces e gateways de pagamento
               </p>
             </div>
-          </div>
+          </GlowBorder>
 
           <!-- Aplicativos Mobile -->
-          <div class="relative group">
-            <GlowingEffect 
-              :disabled="false" 
-              :spread="30" 
-              :blur="5" 
-              :proximity="100"
-              variant="default"
-            />
-            <div class="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-slate-800/50 rounded-2xl p-4 md:p-6 hover:border-violet-500/30 transition-all duration-300 hover:scale-105 h-full flex flex-col">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:bg-violet-500/20 transition-colors">
-                <Icon name="lucide:smartphone" class="w-5 h-5 md:w-6 md:h-6 text-violet-400" />
+          <GlowBorder container-class="group h-full">
+            <div class="glass-card rounded-2xl p-6 md:p-8 h-full flex flex-col transition-all duration-300">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-violet-500/20 transition-all duration-300 group-hover:scale-110">
+                <Icon name="lucide:smartphone" class="w-6 h-6 md:w-7 md:h-7 text-violet-400" />
               </div>
-              <h3 class="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">Aplicativos Mobile</h3>
-              <p class="text-sm text-slate-400 leading-relaxed flex-1">
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">Aplicativos Mobile</h3>
+              <p class="text-sm md:text-base text-slate-400 leading-relaxed flex-1 font-light">
                 Desenvolvimento de apps nativos para Android e iOS personalizados para seu negócio
               </p>
             </div>
-          </div>
+          </GlowBorder>
 
           <!-- Engenharia Web -->
-          <div class="relative group">
-            <GlowingEffect 
-              :disabled="false" 
-              :spread="30" 
-              :blur="5" 
-              :proximity="100"
-              variant="default"
-            />
-            <div class="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-slate-800/50 rounded-2xl p-4 md:p-6 hover:border-violet-500/30 transition-all duration-300 hover:scale-105 h-full flex flex-col">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:bg-violet-500/20 transition-colors">
-                <Icon name="lucide:monitor" class="w-5 h-5 md:w-6 md:h-6 text-violet-400" />
+          <GlowBorder container-class="group h-full">
+            <div class="glass-card rounded-2xl p-6 md:p-8 h-full flex flex-col transition-all duration-300">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-violet-500/20 transition-all duration-300 group-hover:scale-110">
+                <Icon name="lucide:monitor" class="w-6 h-6 md:w-7 md:h-7 text-violet-400" />
               </div>
-              <h3 class="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">Engenharia Web</h3>
-              <p class="text-sm text-slate-400 leading-relaxed flex-1">
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">Engenharia Web</h3>
+              <p class="text-sm md:text-base text-slate-400 leading-relaxed flex-1 font-light">
                 Web apps, landing pages e sistemas web responsivos e performáticos
               </p>
             </div>
-          </div>
+          </GlowBorder>
 
           <!-- Integrações -->
-          <div class="relative group">
-            <GlowingEffect 
-              :disabled="false" 
-              :spread="30" 
-              :blur="5" 
-              :proximity="100"
-              variant="default"
-            />
-            <div class="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-slate-800/50 rounded-2xl p-4 md:p-6 hover:border-violet-500/30 transition-all duration-300 hover:scale-105 h-full flex flex-col">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:bg-violet-500/20 transition-colors">
-                <Icon name="lucide:link" class="w-5 h-5 md:w-6 md:h-6 text-violet-400" />
+          <GlowBorder container-class="group h-full">
+            <div class="glass-card rounded-2xl p-6 md:p-8 h-full flex flex-col transition-all duration-300">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-violet-500/20 transition-all duration-300 group-hover:scale-110">
+                <Icon name="lucide:link" class="w-6 h-6 md:w-7 md:h-7 text-violet-400" />
               </div>
-              <h3 class="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">Integrações</h3>
-              <p class="text-sm text-slate-400 leading-relaxed flex-1">
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">Integrações</h3>
+              <p class="text-sm md:text-base text-slate-400 leading-relaxed flex-1 font-light">
                 Conectamos sistemas e APIs para automatizar processos e otimizar fluxos de trabalho
               </p>
             </div>
-          </div>
+          </GlowBorder>
         </div>
 
         <!-- Segunda linha: 3 cards centralizados -->
         <div class="flex flex-wrap justify-center gap-4 md:gap-6">
           
           <!-- Consultoria -->
-          <div class="relative group w-full md:w-auto md:max-w-xs">
-            <GlowingEffect 
-              :disabled="false" 
-              :spread="30" 
-              :blur="5" 
-              :proximity="100"
-              variant="default"
-            />
-            <div class="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-slate-800/50 rounded-2xl p-4 md:p-6 hover:border-violet-500/30 transition-all duration-300 hover:scale-105 h-full flex flex-col">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:bg-violet-500/20 transition-colors">
-                <Icon name="lucide:users" class="w-5 h-5 md:w-6 md:h-6 text-violet-400" />
+          <GlowBorder container-class="group w-full md:w-auto md:max-w-xs h-full">
+            <div class="glass-card rounded-2xl p-6 md:p-8 h-full flex flex-col transition-all duration-300">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-violet-500/20 transition-all duration-300 group-hover:scale-110">
+                <Icon name="lucide:users" class="w-6 h-6 md:w-7 md:h-7 text-violet-400" />
               </div>
-              <h3 class="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">Consultoria</h3>
-              <p class="text-sm text-slate-400 leading-relaxed flex-1">
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">Consultoria</h3>
+              <p class="text-sm md:text-base text-slate-400 leading-relaxed flex-1 font-light">
                 Análise estratégica e planejamento de projetos tecnológicos para seu crescimento
               </p>
             </div>
-          </div>
+          </GlowBorder>
 
           <!-- IA & Automação -->
-          <div class="relative group w-full md:w-auto md:max-w-xs">
-            <GlowingEffect 
-              :disabled="false" 
-              :spread="30" 
-              :blur="5" 
-              :proximity="100"
-              variant="default"
-            />
-            <div class="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-slate-800/50 rounded-2xl p-4 md:p-6 hover:border-violet-500/30 transition-all duration-300 hover:scale-105 h-full flex flex-col">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:bg-violet-500/20 transition-colors">
-                <Icon name="lucide:brain" class="w-5 h-5 md:w-6 md:h-6 text-violet-400" />
+          <GlowBorder container-class="group w-full md:w-auto md:max-w-xs h-full">
+            <div class="glass-card rounded-2xl p-6 md:p-8 h-full flex flex-col transition-all duration-300">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-violet-500/20 transition-all duration-300 group-hover:scale-110">
+                <Icon name="lucide:brain" class="w-6 h-6 md:w-7 md:h-7 text-violet-400" />
               </div>
-              <h3 class="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">IA & Automação</h3>
-              <p class="text-sm text-slate-400 leading-relaxed flex-1">
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">IA & Automação</h3>
+              <p class="text-sm md:text-base text-slate-400 leading-relaxed flex-1 font-light">
                 Chatbots inteligentes, automação de processos e soluções com IA
               </p>
             </div>
-          </div>
+          </GlowBorder>
 
           <!-- Modernização de Sistemas -->
-          <div class="relative group w-full md:w-auto md:max-w-xs">
-            <GlowingEffect 
-              :disabled="false" 
-              :spread="30" 
-              :blur="5" 
-              :proximity="100"
-              variant="default"
-            />
-            <div class="bg-gradient-to-br from-slate-900/60 to-slate-900/30 border border-slate-800/50 rounded-2xl p-4 md:p-6 hover:border-violet-500/30 transition-all duration-300 hover:scale-105 h-full flex flex-col">
-              <div class="w-10 h-10 md:w-12 md:h-12 bg-violet-500/10 rounded-xl flex items-center justify-center mb-3 md:mb-4 group-hover:bg-violet-500/20 transition-colors">
-                <Icon name="lucide:refresh-ccw" class="w-5 h-5 md:w-6 md:h-6 text-violet-400" />
+          <GlowBorder container-class="group w-full md:w-auto md:max-w-xs h-full">
+            <div class="glass-card rounded-2xl p-6 md:p-8 h-full flex flex-col transition-all duration-300">
+              <div class="w-12 h-12 md:w-14 md:h-14 bg-violet-500/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:bg-violet-500/20 transition-all duration-300 group-hover:scale-110">
+                <Icon name="lucide:refresh-ccw" class="w-6 h-6 md:w-7 md:h-7 text-violet-400" />
               </div>
-              <h3 class="text-base md:text-lg font-semibold text-white mb-2 md:mb-3">Modernização</h3>
-              <p class="text-sm text-slate-400 leading-relaxed flex-1">
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 tracking-tight">Modernização</h3>
+              <p class="text-sm md:text-base text-slate-400 leading-relaxed flex-1 font-light">
                 Legacy to cloud, refatoração e arquitetura orientada a domínio
               </p>
             </div>
-          </div>
+          </GlowBorder>
         </div>
       </div>
     </div>
@@ -165,7 +122,7 @@
 </template>
 
 <script setup lang="ts">
-import GlowingEffect from './ui/GlowingEffect.vue'
+import GlowBorder from './ui/GlowBorder.vue'
 </script>
 
 
