@@ -51,7 +51,7 @@ let lastFrameTime = 0
 const canvasRef = templateRef<HTMLCanvasElement | null>('canvasRef')
 
 function getSpeed(): number {
-  return props.speed === 'slow' ? 0.001 : 0.002
+  return props.speed === 'slow' ? 0.005 : 0.01
 }
 
 function init() {
