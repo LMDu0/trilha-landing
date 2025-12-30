@@ -9,9 +9,18 @@
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
           Como elevamos a <span class="text-violet-400">Fenamilho 2025</span> ao próximo nível digital
         </h2>
-        <p class="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl">
-          Aplicativo oficial que conectou visitantes, organizadores e patrocinadores — do pré ao pós-evento — gerando engajamento recorde, novas oportunidades de negócio e uma experiência unificada para milhares de pessoas.
-        </p>
+        <div class="space-y-3">
+          <p class="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl">
+            Desenvolvemos o <strong class="text-white">aplicativo oficial da Fenamilho 2025</strong>, uma das maiores 
+            feiras de agronegócio da região Sul do Brasil. O projeto conectou visitantes, organizadores e 
+            patrocinadores em uma plataforma completa que acompanhou todo o ciclo do evento.
+          </p>
+          <p class="text-base md:text-lg text-slate-400 leading-relaxed max-w-3xl">
+            Com funcionalidades de pré-evento, experiência ao vivo e relacionamento pós-evento, geramos 
+            <strong class="text-violet-400">engajamento recorde</strong>, novas oportunidades de negócio para 
+            patrocinadores e uma experiência unificada para milhares de participantes.
+          </p>
+        </div>
       </header>
 
       <!-- App Showcase Layout -->
@@ -28,13 +37,14 @@
 
         <!-- Static Content -->
         <div class="order-2 lg:order-2 space-y-6 flex flex-col justify-center">
-          <div>
+          <div class="space-y-4">
             <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
-              Solução completa para eventos
+              Aplicativo completo para eventos
             </h3>
-            <p class="text-slate-300 leading-relaxed text-lg">
-              Um aplicativo que conecta organizadores, participantes e patrocinadores em uma experiência única, 
-              com funcionalidades que abrangem todo o ciclo do evento.
+            <p class="text-slate-300 leading-relaxed text-base md:text-lg">
+              Uma plataforma que conecta <strong class="text-white">organizadores, participantes e patrocinadores</strong> 
+              em uma experiência integrada. Do pré ao pós-evento, com todas as ferramentas necessárias 
+              para engajamento e gestão em tempo real.
             </p>
           </div>
 
@@ -172,31 +182,31 @@ const appScreens = [
   {
     id: 'main',
     title: 'Tela Principal',
-    description: 'Interface principal do aplicativo',
+    description: 'Interface principal do aplicativo Fenamilho desenvolvido pela Trilha Labs para eventos agrícolas',
     image: '/images/fenamilho-app-mockup.svg'
   },
   {
     id: 'pre-event',
     title: 'Pré-evento',
-    description: 'Funcionalidades de preparação',
+    description: 'Funcionalidades de preparação e engajamento antes do evento da Fenamilho',
     image: '/images/pre-evento-mockup.svg'
   },
   {
     id: 'live-event',
     title: 'Ao Vivo',
-    description: 'Experiência durante o evento',
+    description: 'Experiência durante o evento com agenda, notícias e gamificação em tempo real',
     image: '/images/durante-evento-mockup.svg'
   },
   {
     id: 'post-event',
     title: 'Pós-evento',
-    description: 'Análises e relacionamento',
+    description: 'Análises de dados, relacionamento com participantes e resultados do evento',
     image: '/images/pos-evento-mockup.svg'
   },
   {
     id: 'platform',
     title: 'Plataforma',
-    description: 'Solução completa',
+    description: 'Solução completa de software para gestão de eventos agrícolas e feiras',
     image: '/images/produto-plataforma-mockup.svg'
   }
 ]

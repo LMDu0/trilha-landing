@@ -7,6 +7,10 @@
     
     <!-- Wavy Background -->
     <ClientOnly>
+      <template #fallback>
+        <!-- Static gradient fallback for instant render and better LCP -->
+        <div class="absolute inset-0 h-full bg-[#020617]" />
+      </template>
       <LazyWavyBackground 
         class="absolute inset-0 h-full"
         :colors="['#8b5cf6', '#a855f7', '#c084fc']"
@@ -25,15 +29,21 @@
           
           <!-- Main headline -->
           <div class="py-8 md:py-10">
-            <h1 class="text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tight">
+            <!-- H1 para SEO (oculto visualmente mas presente para crawlers) -->
+            <h1 class="sr-only">
+              Desenvolvimento de Software Sob Medida para Eventos, Feiras e Agronegócio
+            </h1>
+            
+            <!-- Texto visual (não é H1, mas aparece como principal) -->
+            <div class="text-5xl lg:text-7xl font-bold leading-[0.95] tracking-tight" role="presentation">
               <span class="text-white block">Não seguimos tendências.</span>
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-300 block mt-3 md:mt-2">
                 Criamos caminhos.
               </span>
-            </h1>
+            </div>
 
             <p class="text-lg md:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-2xl pt-8 md:pt-10">
-              Aplicativos e plataformas sob medida para negócios que querem ir além, com performance e resultados reais.
+              Aplicativos e plataformas sob medida para eventos, feiras e agronegócio. Para negócios que querem ir além, com performance e resultados reais.
             </p>
           </div>
 

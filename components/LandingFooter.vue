@@ -5,13 +5,24 @@
         <div class="lg:col-span-5">
           <div class="mb-6"></div>
           <div class="flex items-center gap-3 text-slate-400">
-            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
-              <Icon name="lucide:linkedin" class="h-4 w-4" />
+            <a 
+              href="https://linkedin.com/company/trilhalabs" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visite nosso perfil no LinkedIn"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors"
+            >
+              <Icon name="lucide:linkedin" class="h-4 w-4" aria-hidden="true" />
             </a>
 
-
-            <a href="https://instagram.com/trilhalabs" target="_blank" rel="noopener noreferrer" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors">
-              <Icon name="lucide:instagram" class="h-4 w-4" />
+            <a 
+              href="https://instagram.com/trilhalabs" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Siga-nos no Instagram"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors"
+            >
+              <Icon name="lucide:instagram" class="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         </div>

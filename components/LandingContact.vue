@@ -123,13 +123,26 @@
           <div>
             <h3 class="text-2xl font-semibold mb-6 tracking-tight text-white">Redes</h3>
             <div class="flex space-x-4">
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
-                <Icon name="lucide:linkedin" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" />
-              </div>
+              <a 
+                href="https://linkedin.com/company/trilha-labs" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Visite nosso LinkedIn"
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer"
+                @click="trackContactAction('open_linkedin_banner', 'social_banner')"
+              >
+                <Icon name="lucide:linkedin" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" aria-hidden="true" />
+              </a>
 
-
-              <a href="https://instagram.com/trilhalabs" target="_blank" rel="noopener noreferrer" class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer">
-                <Icon name="lucide:instagram" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" />
+              <a 
+                href="https://instagram.com/trilhalabs" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Siga-nos no Instagram"
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer"
+                @click="trackContactAction('open_instagram_banner', 'social_banner')"
+              >
+                <Icon name="lucide:instagram" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" aria-hidden="true" />
               </a>
             </div>
           </div>

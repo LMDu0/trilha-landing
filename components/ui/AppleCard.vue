@@ -4,7 +4,7 @@
     <div class="w-full h-[340px] md:h-[520px] rounded-xl border border-slate-800/60 bg-slate-900/50 overflow-hidden">
       <img 
         :src="image || 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=800&fit=crop'" 
-        :alt="title" 
+        :alt="description || `${title} - Aplicativo desenvolvido pela Trilha Labs`" 
         class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
       />
     </div>

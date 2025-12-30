@@ -43,7 +43,7 @@
                     <div class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-violet-500/20 rotate-3">
                       <img 
                         src="/images/client.webp" 
-                        alt="Junior Moro"
+                        alt="Junior Moro, Sócio da Belif Marketing, cliente satisfeito da Trilha Labs"
                         class="w-full h-full object-cover"
                       />
                     </div>
@@ -85,7 +85,7 @@
                     <div class="w-32 h-32 rounded-2xl overflow-hidden border-2 border-violet-500/20 rotate-3 hover:rotate-0 transition-transform duration-500">
                       <img 
                         src="/images/client.webp" 
-                        alt="Junior Moro"
+                        alt="Junior Moro, Sócio da Belif Marketing, depoimento sobre desenvolvimento de aplicativo para eventos"
                         class="w-full h-full object-cover"
                       />
                     </div>
