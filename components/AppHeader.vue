@@ -3,7 +3,7 @@
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
     :class="[
       isScrolled 
-        ? 'glass-card border-b border-slate-800/50 shadow-2xl' 
+        ? 'bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/50 shadow-2xl' 
         : 'bg-transparent border-b border-transparent'
     ]"
   >

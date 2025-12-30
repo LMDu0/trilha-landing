@@ -66,23 +66,27 @@ function init() {
   })
   if (!ctx) return
   const parent = canvas.parentElement
-  if (parent) {
-    w = ctx.canvas.width = parent.clientWidth
-    h = ctx.canvas.height = parent.clientHeight
-  }
-  ctx.filter = `blur(${props.blur}px)`
+  if (!parent) return
   
-  // Debounced resize handler
-  let resizeTimeout: ReturnType<typeof setTimeout>
-  window.onresize = () => {
-    clearTimeout(resizeTimeout)
-    resizeTimeout = setTimeout(() => {
-      if (!ctx || !parent) return
-      w = ctx.canvas.width = parent.clientWidth
-      h = ctx.canvas.height = parent.clientHeight
-      ctx.filter = `blur(${props.blur}px)`
-    }, 150)
-  }
+  // Use ResizeObserver para evitar reflow forçado
+  const resizeObserver = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      const { width, height } = entry.contentRect
+      if (ctx) {
+        w = ctx.canvas.width = width
+        h = ctx.canvas.height = height
+        ctx.filter = `blur(${props.blur}px)`
+      }
+    }
+  })
+  
+  resizeObserver.observe(parent)
+  
+  // Cleanup
+  onBeforeUnmount(() => {
+    resizeObserver.disconnect()
+  })
+  
   render()
 }
 
