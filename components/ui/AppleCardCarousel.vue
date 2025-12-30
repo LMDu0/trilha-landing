@@ -1,13 +1,13 @@
 <template>
   <div class="relative w-full">
-    <!-- Mobile: Embla Carousel (< 768px) -->
+    <!-- Mobile: Embla Carousel -->
     <div class="block md:hidden">
       <div ref="mobileViewport" class="w-full h-[400px] overflow-hidden">
         <div class="flex h-full">
           <div
             v-for="(card, index) in cards"
             :key="card.id"
-            class="flex-none w-full h-full px-4"
+            class="flex-none w-full h-full"
           >
             <NuxtImg 
               :src="card.image" 
@@ -15,12 +15,7 @@
               class="w-full h-full object-contain"
               format="webp"
               quality="80"
-              :loading="index === 0 ? 'eager' : 'lazy'"
-              :preload="index === 0"
-              :fetchpriority="index === 0 ? 'high' : 'auto'"
-              width="320"
-              height="400"
-              sizes="100vw sm:320px"
+              loading="lazy"
               placeholder
             />
           </div>
@@ -28,29 +23,23 @@
       </div>
     </div>
 
-    <!-- Desktop & Tablet: Embla Carousel (≥ 768px) -->
+    <!-- Desktop: Embla Carousel - Uma imagem por vez -->
     <div class="hidden md:block">
-      <div ref="desktopViewport" class="w-full overflow-hidden relative min-h-[500px] md:min-h-[580px]">
+      <div ref="desktopViewport" class="w-full overflow-hidden relative">
         <div class="flex">
           <div
             v-for="(card, index) in cards"
             :key="card.id"
-            class="flex-none w-full flex justify-center items-center px-4"
+            class="flex-none w-full flex justify-center"
           >
-            <!-- Responsivo: 90% em tablet, tamanho fixo em desktop -->
-            <div class="w-full max-w-[90%] md:w-auto md:max-w-[450px] h-auto md:h-[580px] relative overflow-hidden rounded-lg">
+            <div class="w-[450px] h-[580px] relative overflow-hidden rounded-lg">
               <NuxtImg 
                 :src="card.image" 
                 :alt="card.title"
                 class="w-full h-full object-contain"
                 format="webp"
                 quality="80"
-                :loading="index === 0 ? 'eager' : 'lazy'"
-                :preload="index === 0"
-                :fetchpriority="index === 0 ? 'high' : 'auto'"
-                width="450"
-                height="580"
-                sizes="(max-width: 1024px) 90vw, 450px"
+                loading="lazy"
                 placeholder
               />
             </div>
@@ -71,16 +60,16 @@
         ></button>
     </div>
 
-    <!-- Controles de navegação - Desktop e Tablet (laterais) -->
+    <!-- Controles de navegação - Desktop (laterais) -->
     <button
-      class="hidden md:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
+      class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
       aria-label="Slide anterior"
       @click="scrollPrev"
     >
       <Icon name="lucide:chevron-left" class="w-5 h-5" />
     </button>
     <button
-      class="hidden md:flex absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
+      class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
       aria-label="Próximo slide"
       @click="scrollNext"
     >
