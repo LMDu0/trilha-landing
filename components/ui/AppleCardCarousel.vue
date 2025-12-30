@@ -23,16 +23,16 @@
       </div>
     </div>
 
-    <!-- Desktop: Embla Carousel - Uma imagem por vez -->
+    <!-- Desktop & Tablet: Embla Carousel - Uma imagem por vez -->
     <div class="hidden md:block">
       <div ref="desktopViewport" class="w-full overflow-hidden relative">
         <div class="flex">
           <div
             v-for="(card, index) in cards"
             :key="card.id"
-            class="flex-none w-full flex justify-center"
+            class="flex-none w-full flex justify-center items-center"
           >
-            <div class="w-[450px] h-[580px] relative overflow-hidden rounded-lg">
+            <div class="w-full max-w-[450px] min-h-[400px] md:min-h-[500px] lg:min-h-[580px] relative overflow-hidden rounded-lg flex items-center justify-center px-4">
               <NuxtImg 
                 :src="card.image" 
                 :alt="card.title"
@@ -41,6 +41,7 @@
                 quality="80"
                 loading="lazy"
                 placeholder
+                sizes="(max-width: 768px) 90vw, (max-width: 1024px) 400px, 450px"
               />
             </div>
           </div>
@@ -60,16 +61,16 @@
         ></button>
     </div>
 
-    <!-- Controles de navegação - Desktop (laterais) -->
+    <!-- Controles de navegação - Desktop & Tablet (laterais) -->
     <button
-      class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
+      class="hidden md:flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
       aria-label="Slide anterior"
       @click="scrollPrev"
     >
       <Icon name="lucide:chevron-left" class="w-5 h-5" />
     </button>
     <button
-      class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
+      class="hidden md:flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 backdrop-blur-sm border border-slate-700/50 rounded-full items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-30"
       aria-label="Próximo slide"
       @click="scrollNext"
     >
