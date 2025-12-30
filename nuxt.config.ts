@@ -500,9 +500,7 @@ export default defineNuxtConfig({
   // SSG Configuration for maximum performance
   nitro: {
     prerender: {
-      routes: ['/sitemap.xml', '/'],
-      failOnError: false, // Não falhar o build se houver erro de prerender
-      ignore: ['/api', '/_ipx'] // Ignorar rotas dinâmicas
+      routes: ['/sitemap.xml', '/']
     },
     routeRules: {
       '/**': {
@@ -510,17 +508,6 @@ export default defineNuxtConfig({
           'X-Frame-Options': 'DENY',
           'X-Content-Type-Options': 'nosniff',
           'Referrer-Policy': 'strict-origin-when-cross-origin'
-        }
-      },
-      // Cache assets agressivamente
-      '/_nuxt/**': {
-        headers: {
-          'Cache-Control': 'public, max-age=31536000, immutable'
-        }
-      },
-      '/images/**': {
-        headers: {
-          'Cache-Control': 'public, max-age=31536000, immutable'
         }
       }
     }
@@ -589,7 +576,6 @@ export default defineNuxtConfig({
   vite: {
     build: {
       target: 'es2020', // Modern JS target to reduce polyfills
-      cssCodeSplit: true, // Split CSS para loading paralelo
       rollupOptions: {
         output: {
           manualChunks: {
@@ -598,18 +584,6 @@ export default defineNuxtConfig({
             'vendor-utils': ['@vueuse/core', '@vueuse/motion'],
             'vendor-ui': ['embla-carousel', 'gsap', 'three'],
             'vendor-analytics': ['mixpanel-browser'],
-          },
-          // Otimizar nomes de assets para cache
-          assetFileNames: (assetInfo) => {
-            const info = assetInfo.name?.split('.') || []
-            const ext = info[info.length - 1] || ''
-            if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
-              return `assets/images/[name]-[hash][extname]`
-            }
-            if (/woff2?|ttf|otf/i.test(ext)) {
-              return `assets/fonts/[name]-[hash][extname]`
-            }
-            return `assets/[name]-[hash][extname]`
           }
         }
       },
@@ -618,9 +592,6 @@ export default defineNuxtConfig({
     },
     esbuild: {
       target: 'es2020' // Also for esbuild
-    },
-    css: {
-      devSourcemap: false // Desabilitar sourcemaps CSS em produção
     }
   }
 })
