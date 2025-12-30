@@ -522,10 +522,10 @@ export default defineNuxtConfig({
   },
 
 
-  // Image optimization
+  // Image optimization - Disabled IPX for SVGs
   image: {
     format: ['webp', 'avif', 'png', 'jpg'],
-    quality: 80, // Reduced from 70 to 80 for better quality/size balance
+    quality: 80,
     screens: {
       xs: 320,
       sm: 640,
@@ -534,24 +534,8 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
     },
-    // Aggressive optimization for SVGs
-    svg: {
-      size: false
-    },
     densities: [1, 2],
-    // Add domains for external images
-    domains: ['www.trilhalabs.com.br', 'trilhalabs.com.br'],
-    // Provider options for better compression
-    provider: 'ipx',
-    ipx: {
-      modifiers: {
-        format: 'webp',
-        quality: 80,
-        fit: 'inside',
-        // Enable compression
-        compress: true
-      }
-    }
+    domains: ['www.trilhalabs.com.br', 'trilhalabs.com.br']
   },
 
   // CSS optimization
