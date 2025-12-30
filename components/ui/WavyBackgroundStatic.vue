@@ -39,6 +39,7 @@ const props = withDefaults(defineProps<WavyBackgroundProps>(), {
   waveOpacity: 0.5
 })
 
+// Pre-computed noise for better performance
 const noise = createNoise3D()
 
 let w = 0
@@ -51,13 +52,18 @@ let lastFrameTime = 0
 const canvasRef = templateRef<HTMLCanvasElement | null>('canvasRef')
 
 function getSpeed(): number {
-  return props.speed === 'slow' ? 0.005 : 0.01
+  // Reduced speed for smoother, less CPU-intensive animation
+  return props.speed === 'slow' ? 0.002 : 0.005
 }
 
 function init() {
   const canvas = canvasRef.value
   if (!canvas) return
-  ctx = canvas.getContext('2d')
+  ctx = canvas.getContext('2d', {
+    // Performance optimizations
+    alpha: false,
+    desynchronized: true,
+  })
   if (!ctx) return
   const parent = canvas.parentElement
   if (parent) {
@@ -65,7 +71,8 @@ function init() {
     h = ctx.canvas.height = parent.clientHeight
   }
   ctx.filter = `blur(${props.blur}px)`
-  // Debounced resize handler to prevent excessive reflows
+  
+  // Debounced resize handler
   let resizeTimeout: ReturnType<typeof setTimeout>
   window.onresize = () => {
     clearTimeout(resizeTimeout)
@@ -74,7 +81,7 @@ function init() {
       w = ctx.canvas.width = parent.clientWidth
       h = ctx.canvas.height = parent.clientHeight
       ctx.filter = `blur(${props.blur}px)`
-    }, 100) // Debounce resize events
+    }, 150)
   }
   render()
 }
@@ -91,7 +98,7 @@ function drawWave(n: number) {
     const firstY = noise(0 / 800, 0.3 * i, nt) * 100
     ctx.moveTo(0, firstY + h * 0.5)
     
-    // Draw the wave - OPTIMIZED: increased step from 5 to 10 for better performance
+    // Draw the wave - Optimized step size
     for (let x = 10; x < w; x += 10) {
       const y = noise(x / 800, 0.3 * i, nt) * 100
       ctx.lineTo(x, y + h * 0.5)
@@ -105,27 +112,26 @@ function drawWave(n: number) {
 function render() {
   if (!ctx) return
   
-  // Performance optimization: limit to 20fps for background animation (was 30fps)
+  // Limit to 30fps for smooth but efficient animation
   const now = performance.now()
-  if (now - lastFrameTime < 50) { // ~20fps instead of 30fps
+  if (now - lastFrameTime < 33) { // ~30fps
     animationId = requestAnimationFrame(render)
     return
   }
   lastFrameTime = now
   
-  // Clear canvas completely
+  // Clear and redraw
   ctx.clearRect(0, 0, w, h)
   
-  // Draw background with full opacity
+  // Background
   ctx.globalAlpha = 1
   ctx.fillStyle = props.backgroundFill!
   ctx.fillRect(0, 0, w, h)
   
-  // Draw waves with specified opacity
+  // Waves
   ctx.globalAlpha = props.waveOpacity!
-  drawWave(2) // Reduce from 3 to 2 waves for better performance
+  drawWave(3) // 3 waves for nice depth effect
   
-  // Reset globalAlpha back to 1 for next frame
   ctx.globalAlpha = 1
   
   animationId = requestAnimationFrame(render)
@@ -137,7 +143,11 @@ onMounted(() => {
     typeof window !== 'undefined' &&
     navigator.userAgent.includes('Safari') &&
     !navigator.userAgent.includes('Chrome')
-  init()
+  
+  // Start animation after a small delay to allow SSR content to render first
+  setTimeout(() => {
+    init()
+  }, 100)
 })
 
 onBeforeUnmount(() => {

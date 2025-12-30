@@ -183,31 +183,31 @@ const appScreens = [
     id: 'main',
     title: 'Tela Principal',
     description: 'Interface principal do aplicativo Fenamilho desenvolvido pela Trilha Labs para eventos agrícolas',
-    image: '/images/fenamilho-app-mockup.svg'
+    image: '/images/fenamilho-app-mockup.webp'
   },
   {
     id: 'pre-event',
     title: 'Pré-evento',
     description: 'Funcionalidades de preparação e engajamento antes do evento da Fenamilho',
-    image: '/images/pre-evento-mockup.svg'
+    image: '/images/pre-evento-mockup.webp'
   },
   {
     id: 'live-event',
     title: 'Ao Vivo',
     description: 'Experiência durante o evento com agenda, notícias e gamificação em tempo real',
-    image: '/images/durante-evento-mockup.svg'
+    image: '/images/durante-evento-mockup.webp'
   },
   {
     id: 'post-event',
     title: 'Pós-evento',
     description: 'Análises de dados, relacionamento com participantes e resultados do evento',
-    image: '/images/pos-evento-mockup.svg'
+    image: '/images/pos-evento-mockup.webp'
   },
   {
     id: 'platform',
     title: 'Plataforma',
     description: 'Solução completa de software para gestão de eventos agrícolas e feiras',
-    image: '/images/produto-plataforma-mockup.svg'
+    image: '/images/produto-plataforma-mockup.webp'
   }
 ]
 

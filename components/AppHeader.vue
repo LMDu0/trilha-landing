@@ -12,7 +12,18 @@
         
         <!-- Logo -->
         <div class="flex items-center gap-3">
-          <NuxtImg src="/Group 15.png" alt="Trilha Labs" class="h-12 w-auto" format="webp" quality="90" priority />
+          <NuxtImg 
+            src="/Group 15.png" 
+            alt="Trilha Labs" 
+            class="h-12 w-auto" 
+            format="webp" 
+            quality="90" 
+            width="200" 
+            height="48"
+            priority 
+            fetchpriority="high"
+            preload
+          />
         </div>
 
         <!-- Navigation -->

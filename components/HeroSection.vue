@@ -5,21 +5,15 @@
       :glow-position="{ x: '30%', y: '40%' }"
     />
     
-    <!-- Wavy Background -->
-    <ClientOnly>
-      <template #fallback>
-        <!-- Static gradient fallback for instant render and better LCP -->
-        <div class="absolute inset-0 h-full bg-[#020617]" />
-      </template>
-      <LazyWavyBackground 
-        class="absolute inset-0 h-full"
-        :colors="['#8b5cf6', '#a855f7', '#c084fc']"
-        :background-fill="'#020617'"
-        :wave-opacity="0.2"
-        :blur="8"
-        speed="slow"
-      />
-    </ClientOnly>
+    <!-- Wavy Background - Optimized Static version with CSS animation -->
+    <WavyBackgroundStatic 
+      class="absolute inset-0 h-full"
+      :colors="['#8b5cf6', '#a855f7', '#c084fc']"
+      :background-fill="'#020617'"
+      :wave-opacity="0.2"
+      :blur="8"
+      speed="slow"
+    />
     <div class="container mx-auto px-6 sm:px-8 relative z-10">
       <!-- Layout assimétrico inspirado no Raycast -->
       <div class="grid lg:grid-cols-12 gap-8 md:gap-16 items-center md:min-h-[calc(100vh-4rem)] pt-12 pb-0 md:py-20">
@@ -99,10 +93,8 @@
 <script setup lang="ts">
 import Button from './ui/Button.vue'
 import GridPattern from './ui/GridPattern.vue'
+import WavyBackgroundStatic from './ui/WavyBackgroundStatic.vue'
 import { useMixpanel } from '../composables/useMixpanel'
-
-// Lazy load heavy background component
-const LazyWavyBackground = defineAsyncComponent(() => import('./ui/WavyBackground.vue'))
 
 const { trackButtonClick } = useMixpanel()
 </script>

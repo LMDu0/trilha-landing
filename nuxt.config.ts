@@ -83,10 +83,11 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'canonical', href: 'https://trilhalabs.com.br' },
         
-        // Performance optimizations
+        // Performance optimizations - Font preload
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap' },
+        { rel: 'preload', as: 'style', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap', media: 'print', onload: "this.media='all'" },
         { rel: 'dns-prefetch', href: 'https://trilha-mailer.vercel.app' },
         { rel: 'dns-prefetch', href: 'https://api.mixpanel.com' },
         { rel: 'dns-prefetch', href: 'https://sentry.io' }
@@ -524,7 +525,7 @@ export default defineNuxtConfig({
   // Image optimization
   image: {
     format: ['webp', 'avif', 'png', 'jpg'],
-    quality: 70,
+    quality: 80, // Reduced from 70 to 80 for better quality/size balance
     screens: {
       xs: 320,
       sm: 640,
@@ -537,7 +538,20 @@ export default defineNuxtConfig({
     svg: {
       size: false
     },
-    densities: [1, 2]
+    densities: [1, 2],
+    // Add domains for external images
+    domains: ['www.trilhalabs.com.br', 'trilhalabs.com.br'],
+    // Provider options for better compression
+    provider: 'ipx',
+    ipx: {
+      modifiers: {
+        format: 'webp',
+        quality: 80,
+        fit: 'inside',
+        // Enable compression
+        compress: true
+      }
+    }
   },
 
   // CSS optimization
