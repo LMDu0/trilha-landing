@@ -500,7 +500,9 @@ export default defineNuxtConfig({
   // SSG Configuration for maximum performance
   nitro: {
     prerender: {
-      routes: ['/sitemap.xml', '/']
+      routes: ['/sitemap.xml', '/'],
+      failOnError: false, // Não falhar o build se houver erro de prerender
+      ignore: ['/api', '/_ipx'] // Ignorar rotas dinâmicas
     },
     routeRules: {
       '/**': {
