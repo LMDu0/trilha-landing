@@ -509,9 +509,7 @@ export default defineNuxtConfig({
         headers: {
           'X-Frame-Options': 'DENY',
           'X-Content-Type-Options': 'nosniff',
-          'Referrer-Policy': 'strict-origin-when-cross-origin',
-          // Preload critical resources
-          'Link': '</css2?family=Inter:wght@300;400;500;600;700;800&display=swap>; rel=preload; as=style; crossorigin=anonymous'
+          'Referrer-Policy': 'strict-origin-when-cross-origin'
         }
       },
       // Cache assets agressivamente
