@@ -36,7 +36,7 @@ export default defineNuxtConfig({
         
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://trilhalabs.com.br' },
+        { property: 'og:url', content: 'https://trilhalabs.com.br/' },
         { property: 'og:site_name', content: 'Trilha Labs' },
         { property: 'og:title', content: 'Desenvolvimento de Apps para Eventos e Agronegócio | Trilha Labs' },
         { property: 'og:description', content: 'Aplicativos mobile nativos iOS e Android para eventos, feiras agrícolas e cooperativas. Cases de sucesso com +3.500 usuários ativos e 205.000 visualizações.' },
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:url', content: 'https://trilhalabs.com.br' },
+        { name: 'twitter:url', content: 'https://trilhalabs.com.br/' },
         { name: 'twitter:title', content: 'Desenvolvimento de Apps para Eventos e Agronegócio | Trilha Labs' },
         { name: 'twitter:description', content: 'Aplicativos mobile nativos para eventos, feiras agrícolas e cooperativas. Cases de sucesso com resultados comprovados.' },
         { name: 'twitter:image', content: 'https://trilhalabs.com.br/og-image.jpg' },
@@ -81,7 +81,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/favicon_io/favicon-16x16.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/favicon_io/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
-        { rel: 'canonical', href: 'https://trilhalabs.com.br' },
+        { rel: 'canonical', href: 'https://trilhalabs.com.br/' },
         
         // Performance optimizations - Font preload
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -489,18 +489,24 @@ export default defineNuxtConfig({
 
   // Sitemap configuration
   site: {
-    url: 'https://trilhalabs.com.br'
+    url: 'https://trilhalabs.com.br',
+    name: 'Trilha Labs',
+    description: 'Desenvolvimento de aplicativos para eventos, feiras e agronegócio',
+    defaultLocale: 'pt-BR'
   },
   
-  // Alternative domains
-  alias: {
-    'vempratrilha.com.br': 'trilhalabs.com.br'
+  sitemap: {
+    defaults: {
+      changefreq: 'weekly',
+      priority: 1.0,
+      lastmod: new Date().toISOString()
+    }
   },
 
   // SSG Configuration for maximum performance
   nitro: {
     prerender: {
-      routes: ['/sitemap.xml', '/']
+      routes: ['/sitemap.xml', '/robots.txt', '/']
     },
     routeRules: {
       '/**': {
@@ -508,6 +514,12 @@ export default defineNuxtConfig({
           'X-Frame-Options': 'DENY',
           'X-Content-Type-Options': 'nosniff',
           'Referrer-Policy': 'strict-origin-when-cross-origin'
+        }
+      },
+      // Ensure sitemap is always accessible
+      '/sitemap.xml': {
+        headers: {
+          'Content-Type': 'application/xml'
         }
       }
     }

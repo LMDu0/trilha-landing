@@ -3,7 +3,6 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://trilhalabs.com.br/sitemap.xml
-Sitemap: https://vempratrilha.com.br/sitemap.xml
 
 # Crawl-delay for better server performance
 Crawl-delay: 1
