@@ -93,6 +93,19 @@ export default defineNuxtConfig({
         { rel: 'dns-prefetch', href: 'https://sentry.io' }
       ],
       script: [
+        // Google Tag (gtag.js)
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=AW-17879031650',
+          async: true
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17879031650');
+          `
+        },
         {
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
