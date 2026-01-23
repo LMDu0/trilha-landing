@@ -25,7 +25,7 @@
           <div class="py-8 md:py-10">
             <!-- H1 para SEO (oculto visualmente mas presente para crawlers) -->
             <h1 class="sr-only">
-              Desenvolvimento de Apps para Eventos e Agronegócio
+              Desenvolvimento de Software, Apps para Eventos e Agronegócio
             </h1>
             
             <!-- Texto visual (não é H1, mas aparece como principal) -->
@@ -37,7 +37,7 @@
             </div>
 
             <p class="text-lg md:text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-2xl pt-8 md:pt-10">
-              Aplicativos e plataformas sob medida para eventos, feiras e agronegócio. Para negócios que querem ir além, com performance e resultados reais.
+              Aplicativos e plataformas sob medida para eventos, agronegócio e projetos corporativos. Transformamos desafios complexos em software de alta performance.
             </p>
           </div>
 
