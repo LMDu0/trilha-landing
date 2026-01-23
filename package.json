@@ -44,5 +44,8 @@
   },
   "overrides": {
     "@vercel/nft": "^0.27.4"
+  },
+  "devDependencies": {
+    "nuxt-gtag": "^4.1.0"
   }
 }

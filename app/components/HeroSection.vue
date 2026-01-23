@@ -25,7 +25,7 @@
           <div class="py-8 md:py-10">
             <!-- H1 para SEO (oculto visualmente mas presente para crawlers) -->
             <h1 class="sr-only">
-              Desenvolvimento de Software Sob Medida para Eventos, Feiras e Agronegócio
+              Desenvolvimento de Apps para Eventos e Agronegócio
             </h1>
             
             <!-- Texto visual (não é H1, mas aparece como principal) -->

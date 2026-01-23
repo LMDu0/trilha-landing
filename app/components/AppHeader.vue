@@ -11,7 +11,7 @@
       <div class="flex items-center justify-between h-20 md:h-18">
         
         <!-- Logo -->
-        <div class="flex items-center gap-3">
+        <NuxtLink to="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <NuxtImg 
             src="/Group 15.png" 
             alt="Trilha Labs" 
@@ -24,22 +24,22 @@
             fetchpriority="high"
             preload
           />
-        </div>
+        </NuxtLink>
 
         <!-- Navigation -->
         <nav class="hidden md:flex items-center gap-10">
-          <a href="#servicos" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
+          <NuxtLink to="/#servicos" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
             Serviços
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#cases" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
+          </NuxtLink>
+          <NuxtLink to="/#cases" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
             Cases
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#contact" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
+          </NuxtLink>
+          <NuxtLink to="/#contact" class="text-slate-400 hover:text-white transition-all duration-300 text-sm font-medium relative group">
             Contato
             <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-violet-400 transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          </NuxtLink>
         </nav>
 
         <!-- CTA -->
@@ -69,27 +69,27 @@
         :class="isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'"
       >
         <nav class="py-4 space-y-4 border-t border-slate-800/50">
-          <a 
-            href="#servicos" 
+          <NuxtLink 
+            to="/#servicos" 
             class="block text-slate-300 hover:text-white transition-colors text-sm font-medium"
             @click="closeMobileMenu"
           >
             Serviços
-          </a>
-          <a 
-            href="#cases" 
+          </NuxtLink>
+          <NuxtLink 
+            to="/#cases" 
             class="block text-slate-300 hover:text-white transition-colors text-sm font-medium"
             @click="closeMobileMenu"
           >
             Cases
-          </a>
-          <a 
-            href="#contact" 
+          </NuxtLink>
+          <NuxtLink 
+            to="/#contact" 
             class="block text-slate-300 hover:text-white transition-colors text-sm font-medium"
             @click="closeMobileMenu"
           >
             Contato
-          </a>
+          </NuxtLink>
           <a 
             href="https://wa.me/555493503203?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
             target="_blank"

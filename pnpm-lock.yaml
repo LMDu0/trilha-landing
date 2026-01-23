@@ -101,6 +101,10 @@ importers:
       vue-the-mask:
         specifier: ^0.11.1
         version: 0.11.1
+    devDependencies:
+      nuxt-gtag:
+        specifier: ^4.1.0
+        version: 4.1.0(magicast@0.3.5)
 
 packages:
 
@@ -4739,6 +4743,9 @@ packages:
   nuxt-component-meta@0.12.2:
     resolution: {integrity: sha512-cosF2jUd47TnN7Y8PsRfzdsVomHpVxVjZZIDgyaPqe+wnl2Ys5LXMUt+K3CpXrJrGRFlDRP6ux47Ukevf9juVQ==}
     hasBin: true
+
+  nuxt-gtag@4.1.0:
+    resolution: {integrity: sha512-2TL7RUA8N8NYGbY4UZ9IqKyMZMgO9cCGu6yqadUU8RF+Y81PXI+k+1giIA11XXStaJoGXaXeNsBUIJXn1tUy3A==}
 
   nuxt-site-config-kit@3.2.11:
     resolution: {integrity: sha512-Um9/JiJpskAC8H18pHs3D/c7ikKj37/OsM1rvTqDgdzShSzOAxGGN+8qBVtGaqp1V+9BuPFSXhr1+TV7+RRsRA==}
@@ -12164,6 +12171,15 @@ snapshots:
     transitivePeerDependencies:
       - magicast
       - vue-component-type-helpers
+
+  nuxt-gtag@4.1.0(magicast@0.3.5):
+    dependencies:
+      '@nuxt/kit': 4.1.3(magicast@0.3.5)
+      defu: 6.1.4
+      pathe: 2.0.3
+      ufo: 1.6.1
+    transitivePeerDependencies:
+      - magicast
 
   nuxt-site-config-kit@3.2.11(magicast@0.3.5)(vue@3.5.18(typescript@5.9.2)):
     dependencies:
