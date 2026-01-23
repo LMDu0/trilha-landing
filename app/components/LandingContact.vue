@@ -249,6 +249,7 @@ import WhatsAppButton from './ui/WhatsAppButton.vue'
 import type { ContactFormData, EmailResponse } from '../types/contact'
 import { useToast } from '../composables/useToast'
 import { useMixpanel } from '../composables/useMixpanel'
+const { gtag } = useGtag()
 import * as Sentry from '@sentry/nuxt'
 
 const form = reactive<ContactFormData>({
@@ -316,6 +317,14 @@ async function handleSubmit() {
     if (response.success) {
       const duration = Date.now() - startTime
       showMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success')
+      
+      // Google Ads Conversion Tracking
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17879031650/formulario', // TODO: Verifique se o label é este mesmo ou um código hash (ex: AbC_...)
+          'event_category': 'contact',
+          'event_label': 'form_submit'
+      })
+
       trackFormSubmit('contact_form', true, undefined, {
         duration_ms: duration,
         has_name: !!form.name,
