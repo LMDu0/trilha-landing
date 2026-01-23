@@ -36,7 +36,7 @@ export default defineNuxtConfig({
         
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://trilhalabs.com.br/' },
+        { property: 'og:url', content: 'https://www.trilhalabs.com.br/' },
         { property: 'og:site_name', content: 'Trilha Labs' },
         { property: 'og:title', content: 'Desenvolvimento de Apps para Eventos e Agronegócio | Trilha Labs' },
         { property: 'og:description', content: 'Aplicativos mobile nativos iOS e Android para eventos, feiras agrícolas e cooperativas. Cases de sucesso com +3.500 usuários ativos e 205.000 visualizações.' },
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:url', content: 'https://trilhalabs.com.br/' },
+        { name: 'twitter:url', content: 'https://www.trilhalabs.com.br/' },
         { name: 'twitter:title', content: 'Desenvolvimento de Apps para Eventos e Agronegócio | Trilha Labs' },
         { name: 'twitter:description', content: 'Aplicativos mobile nativos para eventos, feiras agrícolas e cooperativas. Cases de sucesso com resultados comprovados.' },
         { name: 'twitter:image', content: 'https://trilhalabs.com.br/og-image.jpg' },
@@ -81,7 +81,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/favicon_io/favicon-16x16.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/favicon_io/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
-        { rel: 'canonical', href: 'https://trilhalabs.com.br/' },
+        { rel: 'canonical', href: 'https://www.trilhalabs.com.br' },
         
         // Performance optimizations - Font preload
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -113,7 +113,7 @@ export default defineNuxtConfig({
             "@type": "Organization",
             "name": "Trilha Labs",
             "description": "Desenvolvimento de aplicativos para eventos, feiras e agronegócio. Plataformas sob medida para diversos setores, cooperativas e empresas que buscam inovação digital.",
-            "url": "https://trilhalabs.com.br",
+            "url": "https://www.trilhalabs.com.br",
             "logo": "https://trilhalabs.com.br/og-image.jpg",
             "contactPoint": {
               "@type": "ContactPoint",
@@ -150,7 +150,7 @@ export default defineNuxtConfig({
             "@type": "LocalBusiness",
             "name": "Trilha Labs",
             "description": "Desenvolvimento de aplicativos para eventos, feiras e agronegócio. Plataformas sob medida para diversos setores, cooperativas e empresas que buscam inovação digital.",
-            "url": "https://trilhalabs.com.br",
+            "url": "https://www.trilhalabs.com.br",
             "logo": "https://trilhalabs.com.br/og-image.jpg",
             "image": "https://trilhalabs.com.br/og-image.jpg",
             "telephone": "+55-54-9-3503-3203",
@@ -226,7 +226,7 @@ export default defineNuxtConfig({
                 "position": 1,
                 "item": {
                   "@type": "Service",
-                  "@id": "https://trilhalabs.com.br#aplicativos-mobile",
+                  "@id": "https://www.trilhalabs.com.br#aplicativos-mobile",
                   "name": "Desenvolvimento de Aplicativos Mobile",
                   "description": "Desenvolvimento de apps nativos para Android e iOS personalizados para seu negócio, com foco em performance e experiência do usuário.",
                   "provider": {
@@ -236,7 +236,7 @@ export default defineNuxtConfig({
                   "areaServed": "Brasil",
                   "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://trilhalabs.com.br",
+                    "serviceUrl": "https://www.trilhalabs.com.br",
                     "servicePhone": "+55-54-9-3503-3203"
                   }
                 }
@@ -246,7 +246,7 @@ export default defineNuxtConfig({
                 "position": 2,
                 "item": {
                   "@type": "Service",
-                  "@id": "https://trilhalabs.com.br#eventos-feiras",
+                  "@id": "https://www.trilhalabs.com.br#eventos-feiras",
                   "name": "Aplicativos para Eventos e Feiras",
                   "description": "Soluções completas para eventos, feiras rurais e agronegócio com agenda, notícias, gamificação e analytics em tempo real.",
                   "provider": {
@@ -260,7 +260,7 @@ export default defineNuxtConfig({
                   },
                   "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://trilhalabs.com.br",
+                    "serviceUrl": "https://www.trilhalabs.com.br",
                     "servicePhone": "+55-54-9-3503-3203"
                   }
                 }
@@ -270,7 +270,7 @@ export default defineNuxtConfig({
                 "position": 3,
                 "item": {
                   "@type": "Service",
-                  "@id": "https://trilhalabs.com.br#web-development",
+                  "@id": "https://www.trilhalabs.com.br#web-development",
                   "name": "Engenharia Web",
                   "description": "Web apps, landing pages e sistemas web responsivos e performáticos com tecnologias modernas.",
                   "provider": {
@@ -280,7 +280,7 @@ export default defineNuxtConfig({
                   "areaServed": "Brasil",
                   "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://trilhalabs.com.br",
+                    "serviceUrl": "https://www.trilhalabs.com.br",
                     "servicePhone": "+55-54-9-3503-3203"
                   }
                 }
@@ -290,7 +290,7 @@ export default defineNuxtConfig({
                 "position": 4,
                 "item": {
                   "@type": "Service",
-                  "@id": "https://trilhalabs.com.br#ecommerce",
+                  "@id": "https://www.trilhalabs.com.br#ecommerce",
                   "name": "E-commerce & Marketplace",
                   "description": "Plataformas de vendas online, marketplaces e gateways de pagamento integrados.",
                   "provider": {
@@ -300,7 +300,7 @@ export default defineNuxtConfig({
                   "areaServed": "Brasil",
                   "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://trilhalabs.com.br",
+                    "serviceUrl": "https://www.trilhalabs.com.br",
                     "servicePhone": "+55-54-9-3503-3203"
                   }
                 }
@@ -310,7 +310,7 @@ export default defineNuxtConfig({
                 "position": 5,
                 "item": {
                   "@type": "Service",
-                  "@id": "https://trilhalabs.com.br#integracoes",
+                  "@id": "https://www.trilhalabs.com.br#integracoes",
                   "name": "Integrações de Sistemas",
                   "description": "Conectamos sistemas e APIs para automatizar processos e otimizar fluxos de trabalho empresariais.",
                   "provider": {
@@ -320,7 +320,7 @@ export default defineNuxtConfig({
                   "areaServed": "Brasil",
                   "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://trilhalabs.com.br",
+                    "serviceUrl": "https://www.trilhalabs.com.br",
                     "servicePhone": "+55-54-9-3503-3203"
                   }
                 }
@@ -330,7 +330,7 @@ export default defineNuxtConfig({
                 "position": 6,
                 "item": {
                   "@type": "Service",
-                  "@id": "https://trilhalabs.com.br#ia-automacao",
+                  "@id": "https://www.trilhalabs.com.br#ia-automacao",
                   "name": "IA & Automação",
                   "description": "Soluções com inteligência artificial e automação de tarefas para aumentar produtividade.",
                   "provider": {
@@ -340,7 +340,7 @@ export default defineNuxtConfig({
                   "areaServed": "Brasil",
                   "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://trilhalabs.com.br",
+                    "serviceUrl": "https://www.trilhalabs.com.br",
                     "servicePhone": "+55-54-9-3503-3203"
                   }
                 }
@@ -350,7 +350,7 @@ export default defineNuxtConfig({
                 "position": 7,
                 "item": {
                   "@type": "Service",
-                  "@id": "https://trilhalabs.com.br#consultoria",
+                  "@id": "https://www.trilhalabs.com.br#consultoria",
                   "name": "Consultoria Tecnológica",
                   "description": "Análise estratégica e planejamento de projetos tecnológicos para crescimento do seu negócio.",
                   "provider": {
@@ -360,7 +360,7 @@ export default defineNuxtConfig({
                   "areaServed": "Brasil",
                   "availableChannel": {
                     "@type": "ServiceChannel",
-                    "serviceUrl": "https://trilhalabs.com.br",
+                    "serviceUrl": "https://www.trilhalabs.com.br",
                     "servicePhone": "+55-54-9-3503-3203"
                   }
                 }
@@ -377,7 +377,7 @@ export default defineNuxtConfig({
             "itemReviewed": {
               "@type": "Organization",
               "name": "Trilha Labs",
-              "url": "https://trilhalabs.com.br"
+              "url": "https://www.trilhalabs.com.br"
             },
             "author": {
               "@type": "Person",
@@ -502,7 +502,7 @@ export default defineNuxtConfig({
 
   // Sitemap configuration
   site: {
-    url: 'https://trilhalabs.com.br',
+    url: 'https://www.trilhalabs.com.br',
     name: 'Trilha Labs',
     description: 'Desenvolvimento de aplicativos para eventos, feiras e agronegócio',
     defaultLocale: 'pt-BR'
