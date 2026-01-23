@@ -27,12 +27,12 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'pt-BR'
       },
-      title: 'Desenvolvimento de Apps para Eventos e Agronegócio | Trilha Labs',
+      title: 'Desenvolvimento de Software e Apps para Eventos | Trilha Labs',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'theme-color', content: '#020617' },
-        { name: 'description', content: 'Desenvolvimento de aplicativos mobile para eventos, feiras e agronegócio. Apps nativos iOS e Android, plataformas web e software sob medida. Cases de sucesso com +3.500 usuários e 14 sessões por usuário.' },
-        { name: 'keywords', content: 'desenvolvimento de aplicativos para eventos, app para feiras agrícolas, software para agronegócio, aplicativo para eventos rurais, desenvolvimento mobile brasil, app nativo ios android, plataforma para feiras, aplicativo para cooperativas, software eventos agrícolas, desenvolvimento app sob medida, tecnologia eventos, gamificação eventos, aplicativo fenamilho' },
+        { name: 'description', content: 'Tech Partner especializada em desenvolvimento de software de alta performance, aplicativos para eventos e transformação digital para agronegócio e empresas.' },
+        { name: 'keywords', content: 'desenvolvimento de software, software house, tech partner, apps para eventos, app para feiras agrícolas, transformação digital, desenvolvimento mobile, squad as a service, software corporativo, trilha labs' },
         { name: 'author', content: 'Trilha Labs' },
         { name: 'robots', content: 'index, follow' },
         
@@ -43,8 +43,8 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://www.trilhalabs.com.br/' },
         { property: 'og:site_name', content: 'Trilha Labs' },
-        { property: 'og:title', content: 'Desenvolvimento de Apps para Eventos e Agronegócio | Trilha Labs' },
-        { property: 'og:description', content: 'Aplicativos mobile nativos iOS e Android para eventos, feiras agrícolas e cooperativas. Cases de sucesso com +3.500 usuários ativos e 205.000 visualizações.' },
+        { property: 'og:title', content: 'Trilha Labs | Desenvolvimento de Software de Alta Performance' },
+        { property: 'og:description', content: 'Transformamos desafios complexos em software. Especialistas em Apps para Eventos, Agronegócio e Projetos Corporativos sob medida.' },
         { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' },
         { property: 'og:locale', content: 'pt_BR' },
         
