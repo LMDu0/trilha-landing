@@ -39,6 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const { trackContactAction } = useMixpanel()
+const { gtag } = useGtag()
 
 const whatsappUrl = computed(() => {
   const encodedMessage = encodeURIComponent(props.message)
@@ -96,5 +97,13 @@ const textClass = computed(() => {
 
 function handleClick() {
   trackContactAction(props.trackingAction, props.trackingContext)
+  
+  // Google Ads Conversion Tracking
+  // Dispara o evento de conversão para o Google Ads
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17879031650/whatsapp', // TODO: Substituir pelo label correto
+      'event_category': 'contact',
+      'event_label': 'whatsapp_click'
+  })
 }
 </script>
