@@ -1,242 +1,131 @@
 <template>
-  <section id="contact" class="py-14 md:py-20">
-    <div class="container px-6 sm:px-8">
-      <div class="mx-auto max-w-2xl text-center mb-12 md:mb-16">
-        <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 tech-border rounded-full">
-          <Icon name="lucide:message-circle" class="w-4 h-4 text-violet-400" />
-          <span class="text-sm font-mono text-violet-400 uppercase">VAMOS CONVERSAR</span>
-        </div>
-        
-        <h2 class="text-4xl md:text-5xl font-black mb-6">
-          Pronto para <span class="gradient-text">transformar</span> seu negócio?
-        </h2>
-        <p class="text-lg text-slate-500">
-          Vamos conversar sobre como podemos levar sua empresa para o próximo nível digital.
-        </p>
-      </div>
+  <section id="contact" class="py-14 md:py-20 bg-white">
+    <div class="container mx-auto px-6 sm:px-8">
+      <div class="grid gap-10 lg:grid-cols-5 items-start max-w-6xl mx-auto">
 
-      <div class="grid gap-12 md:gap-16 lg:grid-cols-2 items-start">
-        <div class="space-y-10">
+        <!-- Left: context / direct contact -->
+        <div class="lg:col-span-2 space-y-8">
           <div>
-            <h3 class="text-2xl font-semibold mb-6 tracking-tight text-white">Informações</h3>
-            <div class="space-y-6">
-              <div class="flex items-start space-x-4">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-violet-500/10 border border-violet-500/20">
-                  <Icon name="lucide:mail" class="h-5 w-5 text-violet-400" />
-                </div>
-                <div>
-                  <p class="font-medium text-white">Email</p>
-                  <p class="text-violet-400 font-mono">contato@trilhalabs.com.br</p>
-                  <div class="flex items-center gap-2 mt-2">
-                    <button
-                      type="button"
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-all duration-200 active:scale-95"
-                      :class="{
-                        'animate-pulse bg-violet-500/20 border-violet-500/50': emailButtonClicked,
-                        'scale-95': emailButtonClicked
-                      }"
-                      aria-label="Copiar e-mail"
-                      @click="copyEmailContact()"
-                    >
-                      <Icon 
-                        name="lucide:copy" 
-                        class="h-4 w-4 text-slate-400 hover:text-violet-400 transition-colors"
-                        :class="{ 'text-violet-400': emailButtonClicked }"
-                      />
-                    </button>
-                    <a
-                      href="mailto:contato@trilhalabs.com.br?subject=Contato%20pelo%20site&body=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços."
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-colors"
-                      aria-label="Abrir no e-mail"
-                    >
-                      <Icon name="lucide:mail" class="h-4 w-4 text-slate-400" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="flex items-start space-x-4">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-violet-500/10 border border-violet-500/20">
-                  <Icon name="lucide:phone" class="h-5 w-5 text-violet-400" />
-                </div>
-                <div>
-                  <p class="font-medium text-white">WhatsApp</p>
-                  <p class="text-violet-400 font-mono">(54) 9 3503-3203</p>
-                  <div class="flex items-center gap-2 mt-2">
-                    <button
-                      type="button"
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-violet-500/50 hover:bg-violet-500/10 transition-all duration-200 active:scale-95"
-                      :class="{
-                        'animate-pulse bg-violet-500/20 border-violet-500/50': whatsappButtonClicked,
-                        'scale-95': whatsappButtonClicked
-                      }"
-                      aria-label="Copiar WhatsApp"
-                      @click="copyWhatsappContact()"
-                    >
-                      <Icon 
-                        name="lucide:copy" 
-                        class="h-4 w-4 text-slate-400 hover:text-violet-400 transition-colors"
-                        :class="{ 'text-violet-400': whatsappButtonClicked }"
-                      />
-                    </button>
-                    <WhatsAppButton
-                      message="Olá! Vim através do site da Trilha Labs e gostaria de conversar sobre os serviços."
-                      text="Conversar no WhatsApp"
-                      variant="pill"
-                      size="sm"
-                      :show-text="true"
-                      tracking-action="open_whatsapp"
-                      tracking-context="contact_info"
-                    />
-                  </div>
-                  
-                  <!-- Social Links -->
-                  <div class="flex items-center gap-3 mt-4">
-                    <a
-                      href="https://linkedin.com/company/trilha-labs"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-blue-500/50 hover:bg-blue-500/10 transition-all duration-200 active:scale-95"
-                      aria-label="LinkedIn da Trilha Labs"
-                      @click="trackContactAction('open_linkedin', 'social_link')"
-                    >
-                      <Icon name="lucide:linkedin" class="h-4 w-4 text-slate-400 hover:text-blue-400 transition-colors" />
-                    </a>
-                    <a
-                      href="https://instagram.com/trilhalabs"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-800 hover:border-pink-500/50 hover:bg-pink-500/10 transition-all duration-200 active:scale-95"
-                      aria-label="Instagram da Trilha Labs"
-                      @click="trackContactAction('open_instagram', 'social_link')"
-                    >
-                      <Icon name="lucide:instagram" class="h-4 w-4 text-slate-400 hover:text-pink-400 transition-colors" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-
-            </div>
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+              Quanto seu evento pode faturar?
+            </h2>
+            <p class="text-slate-500 leading-relaxed">
+              30 min de conversa. A gente entende público, setor e tamanho, e volta com uma estimativa do que o app pode faturar pro seu caso. A gente só cobra quando você ganha.
+            </p>
           </div>
 
-          <div>
-            <h3 class="text-2xl font-semibold mb-6 tracking-tight text-white">Redes</h3>
-            <div class="flex space-x-4">
-              <a 
-                href="https://linkedin.com/company/trilha-labs" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Visite nosso LinkedIn"
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer"
-                @click="trackContactAction('open_linkedin_banner', 'social_banner')"
-              >
-                <Icon name="lucide:linkedin" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" aria-hidden="true" />
-              </a>
+          <div class="space-y-3">
+            <a
+              href="https://wa.me/555493503203?text=Olá!%20Quero%20saber%20mais%20sobre%20o%20Trilha%20Flow."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm transition-all"
+            >
+              <div class="w-9 h-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center flex-shrink-0">
+                <Icon name="lucide:message-circle" class="w-4 h-4 text-slate-600" />
+              </div>
+              <div class="min-w-0">
+                <div class="text-sm font-semibold text-slate-900">WhatsApp</div>
+                <div class="text-sm text-slate-500 font-mono truncate">(54) 9 3503-3203</div>
+              </div>
+            </a>
 
-              <a 
-                href="https://instagram.com/trilhalabs" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Siga-nos no Instagram"
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800/50 border border-slate-700/50 hover:border-violet-400/50 hover:bg-violet-500/10 transition-all duration-300 cursor-pointer"
-                @click="trackContactAction('open_instagram_banner', 'social_banner')"
-              >
-                <Icon name="lucide:instagram" class="h-5 w-5 text-slate-400 hover:text-violet-400 transition-colors duration-300" aria-hidden="true" />
-              </a>
-            </div>
+            <a
+              href="mailto:contato@trilhalabs.com.br?subject=Contato%20pelo%20site%20—%20Trilha%20Flow"
+              class="flex items-center gap-3 p-4 rounded-xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm transition-all"
+            >
+              <div class="w-9 h-9 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center flex-shrink-0">
+                <Icon name="lucide:mail" class="w-4 h-4 text-slate-600" />
+              </div>
+              <div class="min-w-0">
+                <div class="text-sm font-semibold text-slate-900">Email</div>
+                <div class="text-sm text-slate-500 font-mono truncate">contato@trilhalabs.com.br</div>
+              </div>
+            </a>
           </div>
         </div>
 
-        <div class="relative rounded-xl border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-5 md:p-6">
-          <div class="mb-6">
-            <h3 class="text-2xl font-semibold tracking-tight text-white">Como podemos te ajudar?</h3>
-            <p class="text-slate-400">Conte rapidamente sobre seu projeto. Responderemos em poucas horas.</p>
-          </div>
-          <form class="space-y-5" @submit.prevent="handleSubmit">
-              <div class="space-y-1">
-                <label class="text-sm text-slate-300">Nome</label>
-              <input v-model="form.name" type="text" placeholder="Seu nome (opcional)"
-                  class="h-12 w-full rounded-lg bg-slate-950/70 border border-slate-800/70 px-5 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30"/>
-              </div>
+        <!-- Right: form -->
+        <div class="lg:col-span-3">
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
+            <h3 class="text-xl font-semibold tracking-tight text-slate-900 mb-1">
+              Conta sobre seu evento
+            </h3>
+            <p class="text-sm text-slate-500 mb-6">
+              Que tipo de evento, quantas pessoas e quando acontece. A gente responde em até 2h úteis.
+            </p>
 
-              <div class="space-y-1">
-              <label class="text-sm text-slate-300">Telefone <span class="text-red-400">*</span></label>
-              <div class="relative">
-                <input 
-                  v-model="form.phone" 
-                  type="tel" 
-                  placeholder="(54) 99999-9999"
-                  @input="formatPhoneInput"
-                  @focus="handlePhoneFocus"
-                  @keydown="handlePhoneKeydown"
-                  class="h-12 w-full rounded-lg bg-slate-950/70 border border-slate-800/70 px-5 pr-12 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30"
+            <form class="space-y-4" @submit.prevent="handleSubmit">
+              <div>
+                <label for="lc-name" class="block text-sm font-medium text-slate-700 mb-1.5">
+                  Nome <span class="text-slate-400 font-normal">(opcional)</span>
+                </label>
+                <input
+                  id="lc-name"
+                  v-model="form.name"
+                  type="text"
+                  autocomplete="name"
+                  placeholder="Seu nome"
+                  class="w-full h-11 rounded-lg border border-slate-200 bg-white px-4 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-500 transition-colors"
                 />
-                <button
-                  v-if="form.phone"
-                  type="button"
-                  @click="clearPhone"
-                  class="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-slate-800/50 transition-colors"
-                  aria-label="Limpar telefone"
-                >
-                  <Icon name="lucide:x" class="w-4 h-4 text-slate-400 hover:text-slate-300" />
-                </button>
               </div>
-            </div>
 
-            <div class="space-y-1">
-              <label class="text-sm text-slate-300">Mensagem <span class="text-red-400">*</span></label>
-              <textarea v-model="form.message" rows="5" placeholder="Conte sobre seu projeto..."
-                class="w-full rounded-lg bg-slate-950/70 border border-slate-800/70 px-5 py-4 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30"></textarea>
-            </div>
+              <div>
+                <label for="lc-phone" class="block text-sm font-medium text-slate-700 mb-1.5">
+                  WhatsApp <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="lc-phone"
+                  v-model="form.phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="(54) 99999-9999"
+                  @input="onPhoneInput"
+                  class="w-full h-11 rounded-lg border border-slate-200 bg-white px-4 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-500 transition-colors"
+                />
+              </div>
 
-             <!-- Status message -->
-             <div v-if="submitMessage" class="p-4 rounded-lg border" :class="{
-               'bg-green-500/10 border-green-500/20 text-green-400': submitStatus === 'success',
-               'bg-red-500/10 border-red-500/20 text-red-400': submitStatus === 'error'
-             }">
-               <div class="flex items-start gap-3">
-                 <Icon v-if="submitStatus === 'success'" name="lucide:check-circle" class="w-4 h-4 mt-0.5 flex-shrink-0" />
-                 <Icon v-if="submitStatus === 'error'" name="lucide:alert-circle" class="w-4 h-4 mt-0.5 flex-shrink-0" />
-                 <div class="flex-1">
-                   <p class="text-sm mb-4">{{ submitMessage }}</p>
-                   <!-- WhatsApp button only for submission errors, not validation errors -->
-                   <WhatsAppButton
-                     v-if="submitStatus === 'error' && !submitMessage.includes('preencha') && !submitMessage.includes('insira')"
-                     message="Olá! Tive problemas para enviar o formulário no site. Gostaria de conversar sobre os serviços da Trilha Labs."
-                     text="Conversar no WhatsApp"
-                     variant="pill"
-                     size="md"
-                     :show-text="true"
-                     tracking-action="open_whatsapp_fallback"
-                     tracking-context="error_message"
-                   />
-                 </div>
-               </div>
-             </div>
+              <div>
+                <label for="lc-message" class="block text-sm font-medium text-slate-700 mb-1.5">
+                  Sobre o evento <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="lc-message"
+                  v-model="form.message"
+                  rows="5"
+                  placeholder="Ex: feira agro em setembro, 5 mil pessoas, queremos monetizar expositores e patrocínio."
+                  class="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-violet-500/30 focus:border-violet-500 transition-colors resize-none"
+                ></textarea>
+              </div>
 
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <p class="text-xs text-slate-500">
-                <Icon name="lucide:clock" class="w-3 h-3 inline mr-1" />
-                Respondemos geralmente em até 2h úteis.
-              </p>
-              <Button 
-                type="submit" 
-                class="w-full sm:w-auto rounded-xl px-8 py-3 text-base font-semibold bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 transition-all duration-300 transform hover:scale-105" 
-                :disabled="isSubmitting"
+              <div
+                v-if="feedback.message"
+                class="p-3 rounded-lg text-sm"
+                :class="feedback.type === 'success'
+                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                  : 'bg-red-50 text-red-700 border border-red-200'"
               >
-                <span v-if="isSubmitting" class="flex items-center justify-center gap-2">
-                  <Icon name="lucide:loader-2" class="w-5 h-5 animate-spin" />
-                  Enviando mensagem...
-                </span>
-                <span v-else class="flex items-center justify-center gap-2">
-                  <Icon name="lucide:send" class="w-5 h-5" />
-                  Enviar Mensagem
-                </span>
-              </Button>
-            </div>
-           </form>
+                {{ feedback.message }}
+              </div>
+
+              <button
+                type="submit"
+                :disabled="isSubmitting"
+                class="w-full inline-flex items-center justify-center gap-2 h-11 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium px-6 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <span v-if="isSubmitting">Enviando…</span>
+                <span v-else>Agendar conversa</span>
+                <Icon v-if="!isSubmitting" name="lucide:arrow-right" class="w-4 h-4" />
+              </button>
+
+              <p class="text-xs text-slate-400 text-center">
+                Sem compromisso. Sem venda forçada.
+              </p>
+            </form>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -244,248 +133,105 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import Button from './ui/Button.vue'
-import WhatsAppButton from './ui/WhatsAppButton.vue'
-import type { ContactFormData, EmailResponse } from '../types/contact'
-import { useToast } from '../composables/useToast'
-import { useMixpanel } from '../composables/useMixpanel'
 
-// Sentry is imported dynamically inside handleSubmit (client-only) to avoid
-// blocking SSG prerender if SENTRY_DSN is missing at build time.
+interface ContactPayload {
+  name?: string
+  phone: string
+  message: string
+}
 
-const form = reactive<ContactFormData>({
+interface EmailResponse {
+  success: boolean
+  message?: string
+}
+
+const form = reactive({
   name: '',
   phone: '',
-  company: '',
-  projectType: '',
-  message: 'Olá! Quero rodar uma projeção de receita com o Trilha Flow para o meu próximo evento. Posso contar um pouco sobre o evento (público, tamanho, formato) e entender o modelo de revenue share?'
+  message: ''
 })
 
 const isSubmitting = ref(false)
-const submitMessage = ref('')
-const submitStatus = ref<'success' | 'error' | null>(null)
+const feedback = reactive<{ type: 'success' | 'error' | null; message: string }>({
+  type: null,
+  message: ''
+})
 
-// Toast system
-const { success: showSuccessToast, error: showErrorToast } = useToast()
+function showFeedback(type: 'success' | 'error', message: string) {
+  feedback.type = type
+  feedback.message = message
+  // Auto-clear after 6s so memory state stays clean
+  window.setTimeout(() => {
+    feedback.type = null
+    feedback.message = ''
+  }, 6000)
+}
 
-// Mixpanel tracking
-const { trackFormSubmit, trackContactAction, trackError } = useMixpanel()
+// Light phone formatter — runs only on actual user input events, no watchers
+function onPhoneInput(event: Event) {
+  const target = event.target as HTMLInputElement
+  const digits = target.value.replace(/\D/g, '').slice(0, 11)
 
-// Button animation states
-const emailButtonClicked = ref(false)
-const whatsappButtonClicked = ref(false)
+  let formatted = ''
+  if (digits.length === 0) {
+    formatted = ''
+  } else if (digits.length <= 2) {
+    formatted = `(${digits}`
+  } else if (digits.length <= 6) {
+    formatted = `(${digits.slice(0, 2)}) ${digits.slice(2)}`
+  } else if (digits.length <= 10) {
+    formatted = `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`
+  } else {
+    formatted = `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
+  }
+
+  form.phone = formatted
+}
 
 async function handleSubmit() {
   if (isSubmitting.value) return
-  
-  let startTime = 0
-  
+
+  const phoneDigits = form.phone.replace(/\D/g, '')
+  if (phoneDigits.length < 10) {
+    showFeedback('error', 'Coloca um WhatsApp com DDD. Ex: (54) 99999-9999.')
+    return
+  }
+  if (!form.message.trim()) {
+    showFeedback('error', 'Conta rapidamente sobre o evento pra gente já chegar com contexto.')
+    return
+  }
+
+  isSubmitting.value = true
+  feedback.type = null
+  feedback.message = ''
+
   try {
-    // Basic validation - only phone and message are required
-    if (!form.phone || !form.message) {
-      showMessage('Por favor, preencha os campos obrigatórios: telefone e mensagem.', 'error')
-      trackError('Form Validation', 'Missing required fields', 'contact_form')
-      return
+    const payload: ContactPayload = {
+      phone: form.phone,
+      message: form.message.trim()
     }
+    if (form.name.trim()) payload.name = form.name.trim()
 
-    // Phone validation - must have at least DDD + number (format: (XX) XXXXX-XXXX)
-    const phoneClean = form.phone.replace(/\D/g, '')
-    if (phoneClean.length < 10) {
-      showMessage('Por favor, insira um telefone válido com DDD. Ex: (54) 99999-9999', 'error')
-      trackError('Form Validation', 'Invalid phone number', 'contact_form')
-      return
-    }
-    
-
-    isSubmitting.value = true
-    submitMessage.value = ''
-    
-    // Track form submission attempt
-    startTime = Date.now()
-    
-    // Send email through API
     const response = await $fetch<EmailResponse>('/api/contact/send', {
       method: 'POST',
-      body: {
-        name: form.name || undefined,
-        phone: form.phone,
-        company: form.company || undefined,
-        projectType: form.projectType || undefined,
-        message: form.message
-      }
+      body: payload
     })
 
-    if (response.success) {
-      const duration = Date.now() - startTime
-      showMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success')
-      trackFormSubmit('contact_form', true, undefined, {
-        duration_ms: duration,
-        has_name: !!form.name,
-        has_company: !!form.company,
-        has_project_type: !!form.projectType,
-        message_length: form.message.length
-      })
-    
-    // Reset form after success
-    Object.assign(form, {
-      name: '',
-        phone: '',
-      company: '',
-      projectType: '',
-        message: 'Olá! Quero rodar uma projeção de receita com o Trilha Flow para o meu próximo evento. Posso contar um pouco sobre o evento (público, tamanho, formato) e entender o modelo de revenue share?'
-      })
+    if (response?.success) {
+      showFeedback('success', 'Mensagem enviada. A gente responde em até 2h úteis.')
+      form.name = ''
+      form.phone = ''
+      form.message = ''
     } else {
-      throw new Error(response.message || 'Erro desconhecido')
+      throw new Error(response?.message || 'Erro ao enviar')
     }
-  } catch (error: any) {
-    // Log error to Sentry (client-only, dynamic to keep SSG prerender safe
-    // if SENTRY_DSN is missing at build time).
-    if (import.meta.client) {
-      try {
-        const Sentry = await import('@sentry/nuxt')
-        Sentry.captureException(error, {
-          tags: {
-            section: 'contact_form'
-          },
-          extra: {
-            form_data: {
-              has_name: !!form.name,
-              has_company: !!form.company,
-              has_project_type: !!form.projectType,
-              message_length: form.message.length,
-              phone_length: form.phone.length
-            }
-          }
-        })
-      } catch {
-        // Sentry is optional; swallow any load/report errors.
-      }
-    }
-
-    // Always show user-friendly message, log technical details to Sentry
-    const errorMessage = 'Ops! Não conseguimos enviar sua mensagem no momento. Que tal falar conosco diretamente pelo WhatsApp?'
-    
-    const duration = Date.now() - startTime
-    showMessage(errorMessage, 'error')
-    trackFormSubmit('contact_form', false, errorMessage, {
-      duration_ms: duration,
-      has_name: !!form.name,
-      has_company: !!form.company,
-      has_project_type: !!form.projectType,
-      message_length: form.message.length
-    })
-    trackError('Form Submit', errorMessage, 'contact_form')
+  } catch {
+    showFeedback(
+      'error',
+      'Não conseguimos enviar agora. Chama direto no WhatsApp (54) 9 3503-3203 que a gente responde na hora.'
+    )
   } finally {
     isSubmitting.value = false
   }
 }
-
-function showMessage(message: string, status: 'success' | 'error') {
-  submitMessage.value = message
-  submitStatus.value = status
-  
-  // Clear message after 5 seconds
-  setTimeout(() => {
-    submitMessage.value = ''
-    submitStatus.value = null
-  }, 5000)
-}
-
-// Auto-fill DDD 54 when user focuses on phone field
-function handlePhoneFocus() {
-  if (!form.phone || form.phone.trim() === '') {
-    form.phone = '(54) '
-  }
-}
-
-// Clear phone field
-function clearPhone() {
-  form.phone = ''
-}
-
-// Format phone input with mask
-function formatPhoneInput(event: Event) {
-  const input = event.target as HTMLInputElement
-  let value = input.value.replace(/\D/g, '')
-  
-  // Ensure it starts with 54 if user tries to change area code
-  if (value.length >= 2 && !value.startsWith('54')) {
-    value = '54' + value.slice(2)
-  }
-  
-  // Apply formatting: (XX) XXXXX-XXXX or (XX) XXXX-XXXX
-  if (value.length <= 2) {
-    form.phone = value ? `(${value})` : ''
-  } else if (value.length <= 7) {
-    form.phone = `(${value.slice(0, 2)}) ${value.slice(2)}`
-  } else if (value.length <= 11) {
-    if (value.length === 11) {
-      // Mobile: (54) 99999-9999
-      form.phone = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`
-    } else {
-      // Landline: (54) 9999-9999
-      form.phone = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`
-    }
-  } else {
-    // Limit to 11 digits
-    value = value.slice(0, 11)
-    form.phone = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`
-  }
-}
-
-// Handle special keys for phone input
-function handlePhoneKeydown(event: KeyboardEvent) {
-  const input = event.target as HTMLInputElement
-  const cursorPosition = input.selectionStart || 0
-  
-  // Allow navigation and control keys
-  if (['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(event.key)) {
-    // Prevent deletion of area code parentheses
-    if (event.key === 'Backspace' && cursorPosition <= 4) {
-      event.preventDefault()
-      return
-    }
-    return
-  }
-  
-  // Only allow numbers
-  if (!/\d/.test(event.key)) {
-    event.preventDefault()
-  }
-}
-
-async function copyEmailContact() {
-  // Button animation
-  emailButtonClicked.value = true
-  setTimeout(() => {
-    emailButtonClicked.value = false
-  }, 200)
-  
-  try {
-    await navigator.clipboard.writeText('contato@trilhalabs.com.br')
-    showSuccessToast('Email copiado!')
-    trackContactAction('copy_email', 'clipboard')
-  } catch {
-    showErrorToast('Erro ao copiar email')
-    trackError('Copy Action', 'Failed to copy email', 'contact_info')
-  }
-}
-
-async function copyWhatsappContact() {
-  // Button animation
-  whatsappButtonClicked.value = true
-  setTimeout(() => {
-    whatsappButtonClicked.value = false
-  }, 200)
-  
-  try {
-    await navigator.clipboard.writeText('(54) 9 3503-3203')
-    showSuccessToast('Telefone copiado!')
-    trackContactAction('copy_whatsapp', 'clipboard')
-  } catch {
-    showErrorToast('Erro ao copiar telefone')
-    trackError('Copy Action', 'Failed to copy whatsapp', 'contact_info')
-  }
-}
-
 </script>
