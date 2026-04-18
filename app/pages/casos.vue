@@ -17,6 +17,76 @@
       </div>
     </section>
 
+    <!-- ===================== DESAFIO / SOLUCAO / RESULTADO ===================== -->
+    <section class="bg-white">
+      <div class="container mx-auto px-6 sm:px-8 max-w-6xl">
+
+        <!-- Bloco 1: Desafio -->
+        <div class="py-20 md:py-24 border-b border-slate-100">
+          <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div class="md:col-span-7 order-2 md:order-1">
+              <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-violet-600 mb-4">
+                01 &middot; Desafio
+              </p>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-5">
+                Feira regional quer crescer sem aumentar custo
+              </h2>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Uma feira anual grande, com milhares de visitantes, mas sem nenhum fio que ligasse uma edição à outra. Patrocinadores pediam prova de alcance e mal tinham como ver o retorno. Expositores queriam vender além dos três dias de evento. E o público, depois que ia embora, sumia — só voltava no ano seguinte, se lembrasse.
+              </p>
+            </div>
+            <div class="md:col-span-5 order-1 md:order-2 text-right">
+              <span class="text-[7rem] md:text-[10rem] font-bold leading-none text-slate-200 select-none">01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco 2: Solucao -->
+        <div class="py-20 md:py-24 border-b border-slate-100">
+          <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div class="md:col-span-5 order-1 text-left">
+              <span class="text-[7rem] md:text-[10rem] font-bold leading-none text-slate-200 select-none">02</span>
+            </div>
+            <div class="md:col-span-7 order-2">
+              <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-violet-600 mb-4">
+                02 &middot; Solução
+              </p>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-5">
+                App próprio da Fenamilho com Trilha Flow
+              </h2>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Um app com a cara da feira: feed social pra vídeos do público, missões que puxavam gente pros estandes, moeda do evento que circulava entre visitantes e expositores, área dedicada pra quem estava expondo e um painel pro organizador enxergar tudo em tempo real. Lançado antes do evento, ligado durante e mantido depois.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco 3: Resultado -->
+        <div class="py-20 md:py-24">
+          <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div class="md:col-span-7 order-2 md:order-1">
+              <p class="text-xs md:text-sm font-semibold uppercase tracking-wider text-violet-600 mb-4">
+                03 &middot; Resultado
+              </p>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-5">
+                Engajamento que vira receita
+              </h2>
+              <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                Mais de 3 mil pessoas usando o app durante a feira — voltando várias vezes por dia, assistindo vídeos do próprio público, cumprindo missões e gastando moeda nos estandes. O organizador passou a ter dados pra mostrar aos patrocinadores, os expositores seguiram vendendo depois do evento e a conversa com o público não parou quando o portão fechou.
+              </p>
+              <blockquote class="border-l-2 border-violet-600 pl-5 text-gray-700 italic">
+                "O app mudou a forma que a gente conversa com nosso público."
+              </blockquote>
+            </div>
+            <div class="md:col-span-5 order-1 md:order-2 text-right">
+              <span class="text-[7rem] md:text-[10rem] font-bold leading-none text-slate-200 select-none">03</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ===================== MAIN CASE: FENAMILHO 2025 ===================== -->
     <section class="py-16 md:py-24">
       <div class="container mx-auto px-6 sm:px-8">

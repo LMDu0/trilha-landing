@@ -2,7 +2,7 @@
   <div class="relative w-full">
     <!-- Mobile: Embla Carousel -->
     <div class="block md:hidden">
-      <div ref="mobileViewport" class="w-full h-[400px] overflow-hidden">
+      <div ref="mobileViewport" class="w-full h-[300px] overflow-hidden">
         <div class="flex h-full">
           <div
             v-for="(card, index) in cards"

@@ -84,11 +84,13 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/favicon_io/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
 
-        // Performance optimizations - Font preload
+        // Performance optimizations - Font preload (blocking for Inter, evita FOUC)
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
-        { rel: 'preload', as: 'style', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap', media: 'print', onload: "this.media='all'" },
+        // Preload do .woff2 do Inter 500 (peso mais usado) pra já chegar no primeiro paint
+        { rel: 'preload', as: 'font', type: 'font/woff2', href: 'https://fonts.gstatic.com/s/inter/v19/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2', crossorigin: 'anonymous' },
+        // Stylesheet bloqueante (mas pequeno) — garante fonte certa no primeiro paint
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' },
         { rel: 'dns-prefetch', href: 'https://trilha-mailer.vercel.app' },
         { rel: 'dns-prefetch', href: 'https://api.mixpanel.com' },
         { rel: 'dns-prefetch', href: 'https://sentry.io' }
@@ -323,7 +325,13 @@ export default defineNuxtConfig({
       { loc: '/eventos/feiras', priority: 0.8, changefreq: 'monthly' },
       { loc: '/eventos/festivais', priority: 0.75, changefreq: 'monthly' },
       // Intent
-      { loc: '/como-monetizar-evento', priority: 0.85, changefreq: 'monthly' }
+      { loc: '/como-monetizar-evento', priority: 0.85, changefreq: 'monthly' },
+      { loc: '/app-para-eventos', priority: 0.85, changefreq: 'monthly' },
+      { loc: '/gamificacao-para-eventos', priority: 0.85, changefreq: 'monthly' },
+      { loc: '/como-aumentar-receita-evento', priority: 0.85, changefreq: 'monthly' },
+      { loc: '/como-engajar-publico-evento', priority: 0.8, changefreq: 'monthly' },
+      { loc: '/economia-virtual-eventos', priority: 0.8, changefreq: 'monthly' },
+      { loc: '/feed-social-para-eventos', priority: 0.8, changefreq: 'monthly' }
     ]
   },
 
@@ -335,7 +343,9 @@ export default defineNuxtConfig({
         '/', '/produto', '/casos', '/precos', '/contato',
         '/para-organizadores', '/para-expositores', '/para-patrocinadores', '/para-participantes',
         '/eventos/agro', '/eventos/tech', '/eventos/corporativos', '/eventos/feiras', '/eventos/festivais',
-        '/como-monetizar-evento'
+        '/como-monetizar-evento',
+        '/app-para-eventos', '/gamificacao-para-eventos', '/como-aumentar-receita-evento',
+        '/como-engajar-publico-evento', '/economia-virtual-eventos', '/feed-social-para-eventos'
       ]
     },
     routeRules: {

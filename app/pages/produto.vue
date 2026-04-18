@@ -13,13 +13,13 @@
         </span>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-          <span class="text-gray-900">Tudo que seu evento precisa.</span>
+          <span class="text-gray-900">Um app.</span>
           <br />
-          <span class="text-gray-900">Em um único app.</span>
+          <span class="text-gray-900">Cinco formas de faturar.</span>
         </h1>
 
         <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
-          Missões e prêmios, feed com vídeos, moeda do evento e painel com tudo o que está acontecendo. Um app com a cara do seu evento — que continua vendendo depois que o evento acaba.
+          Feed social, missões, moeda, marketplace e patrocínio digital — tudo no mesmo lugar. Um app com a cara do seu evento, que continua rendendo depois que acaba.
         </p>
         <p class="text-sm text-gray-500 max-w-2xl mx-auto mt-4">
           A Trilha não substitui a sua plataforma de ingresso. Ela começa depois — no app que fica na mão do público e vira o ponto de encontro do seu evento, antes, durante e depois.
@@ -30,7 +30,7 @@
             to="/contato"
             class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 hover:bg-black text-white font-medium transition-colors"
           >
-            Calcular quanto meu evento pode faturar
+            Agendar conversa de 30 min
             <Icon name="lucide:arrow-right" class="w-4 h-4" />
           </NuxtLink>
           <NuxtLink
@@ -39,6 +39,39 @@
           >
             Como a gente cobra
           </NuxtLink>
+        </div>
+        <p class="text-sm text-gray-500 max-w-xl mx-auto mt-4 leading-relaxed">
+          30 min de conversa. Saímos com uma estimativa do seu próximo evento — feita pro seu público, setor e tamanho. Sem compromisso, sem venda forçada.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 5 FORMAS DE FATURAR -->
+    <!-- ============================================ -->
+    <section class="relative py-20 md:py-24 bg-white border-t border-slate-100">
+      <div class="container mx-auto px-6 sm:px-8 relative z-10">
+        <div class="max-w-2xl mx-auto text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+            As cinco formas, uma a uma
+          </h2>
+          <p class="text-base text-gray-600 mt-3 leading-relaxed">
+            Cada uma delas resolve uma dor diferente. Juntas, elas fazem o seu evento faturar o ano inteiro.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+          <div
+            v-for="way in revenueWays"
+            :key="way.title"
+            class="bg-white border border-slate-200 rounded-2xl p-5 md:p-6 hover:shadow-sm transition-shadow duration-300"
+          >
+            <div class="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center mb-4">
+              <Icon :name="way.icon" class="w-5 h-5 text-violet-600" />
+            </div>
+            <h3 class="text-sm md:text-base font-semibold text-gray-900 mb-2">{{ way.title }}</h3>
+            <p class="text-xs md:text-sm text-gray-500 leading-relaxed">{{ way.description }}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -181,6 +214,10 @@
             Para Organizadores
           </span>
 
+          <p class="text-xs md:text-sm font-medium uppercase tracking-wider text-violet-600 mb-3">
+            Cota virar contrato com planilha, não com promessa
+          </p>
+
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
             Dados que geram dinheiro
           </h2>
@@ -221,7 +258,7 @@
             Quer ver quanto seu evento pode faturar com isso?
           </h2>
           <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Em 30 min a gente roda a projeção com os seus números. Sem compromisso, sem venda forçada — e a gente só cobra quando você ganha.
+            Em 30 min a gente roda a projeção com os seus números. Sem compromisso, sem venda forçada — plano mensal fechado, 100% da receita fica com você.
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -307,6 +344,34 @@ interface Feature {
   title: string
   description: string
 }
+
+const revenueWays: Feature[] = [
+  {
+    icon: 'lucide:play-circle',
+    title: 'Feed social',
+    description: 'Vídeos do público viralizando seu evento.',
+  },
+  {
+    icon: 'lucide:target',
+    title: 'Missões e moeda',
+    description: 'Público gasta tempo, desbloqueia prêmios.',
+  },
+  {
+    icon: 'lucide:store',
+    title: 'Marketplace',
+    description: 'Expositores vendem antes, durante e depois.',
+  },
+  {
+    icon: 'lucide:megaphone',
+    title: 'Patrocínio digital',
+    description: 'Cotas que antes não existiam.',
+  },
+  {
+    icon: 'lucide:activity',
+    title: 'Analytics em tempo real',
+    description: 'Você vê o evento acontecendo.',
+  },
+]
 
 const gamificationFeatures: Feature[] = [
   {
