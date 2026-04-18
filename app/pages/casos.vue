@@ -288,13 +288,31 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Case Fenamilho 2025 | Trilha Flow — 3.500 Usuários e 205K Visualizações',
-  meta: [
-    {
-      name: 'description',
-      content: 'Veja como o Trilha Flow transformou a Fenamilho 2025 com 3.500 usuários ativos, 205.000 visualizações e 20.000+ interações gamificadas.',
-    },
+  title: 'Case Fenamilho 2025 — Trilha Flow | 3.500 usuários, 205K views, 14 sessões por pessoa',
+  link: [
+    { rel: 'canonical', href: 'https://trilhalabs.com.br/casos' }
   ],
+  meta: [
+    { name: 'description', content: 'Case real da Fenamilho 2025: 3.500 pessoas usando o app, 205K views em reels, 14 sessões por usuário e 20K+ interações gamificadas. A prova de que o app do seu evento pode virar canal de receita.' },
+    { property: 'og:title', content: 'Case Fenamilho 2025 — Trilha Flow' },
+    { property: 'og:description', content: 'A Fenamilho virou referência de engajamento digital com o app da Trilha Flow. Veja os números reais.' },
+    { property: 'og:url', content: 'https://trilhalabs.com.br/casos' },
+    { property: 'og:type', content: 'article' },
+    { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://trilhalabs.com.br/' },
+          { '@type': 'ListItem', position: 2, name: 'Case Fenamilho 2025', item: 'https://trilhalabs.com.br/casos' }
+        ]
+      })
+    }
+  ]
 })
 
 const carouselCards = [

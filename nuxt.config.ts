@@ -25,12 +25,12 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'pt-BR'
       },
-      title: 'Trilha Flow — Event Economy Infrastructure | A infraestrutura que transforma eventos em receita',
+      title: 'Trilha Flow — App para eventos que continua vendendo depois',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'theme-color', content: '#ffffff' },
-        { name: 'description', content: 'Trilha Flow é a primeira infraestrutura de economia para eventos. Gamificação, reels e marketplace interno com revenue share nativo. Todo evento é uma economia. A sua roda na Trilha. Case Fenamilho 2025: 3.500+ participantes, 205K views.' },
-        { name: 'keywords', content: 'event economy infrastructure, infraestrutura para eventos, app para eventos, monetizar evento, receita de evento, gamificação eventos, marketplace evento, economia virtual eventos, revenue share eventos, app feira agro, trilha flow, app festival, app conferência, plataforma receita eventos' },
+        { name: 'description', content: 'App para eventos com a cara do seu evento. Loja dos expositores, moeda própria e vídeos do público que seguem rodando depois do último dia. A gente só cobra quando você ganha. Case Fenamilho 2025.' },
+        { name: 'keywords', content: 'app para eventos, app para feiras, monetizar evento, como ganhar dinheiro com evento, app personalizado para evento, aplicativo para feira agro, app para festival, app para congresso, app para convenção, gamificação em eventos, patrocínio digital, trilha flow, trilha labs' },
         { name: 'author', content: 'Trilha Labs' },
         { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
 
@@ -41,22 +41,22 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://trilhalabs.com.br/' },
         { property: 'og:site_name', content: 'Trilha Flow by Trilha Labs' },
-        { property: 'og:title', content: 'Trilha Flow — Event Economy Infrastructure' },
-        { property: 'og:description', content: 'A infraestrutura que transforma a atenção do seu evento em receita mensurável. Revenue share nativo. Case Fenamilho 2025.' },
+        { property: 'og:title', content: 'Trilha Flow — App para eventos que continua vendendo depois' },
+        { property: 'og:description', content: 'O app do seu evento com moeda própria, loja dos expositores e vídeos do público. A gente só cobra quando você ganha.' },
         { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' },
         { property: 'og:locale', content: 'pt_BR' },
 
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Trilha Flow — Event Economy Infrastructure' },
-        { name: 'twitter:description', content: 'A infraestrutura que transforma a atenção do seu evento em receita. Revenue share nativo. Case Fenamilho 2025.' },
+        { name: 'twitter:title', content: 'Trilha Flow — App para eventos que continua vendendo depois' },
+        { name: 'twitter:description', content: 'O app do seu evento com moeda própria, loja dos expositores e vídeos do público. A gente só cobra quando você ganha.' },
         { name: 'twitter:image', content: 'https://trilhalabs.com.br/og-image.jpg' },
-        { name: 'twitter:image:alt', content: 'Trilha Flow - Plataforma de Engajamento para Eventos' },
+        { name: 'twitter:image:alt', content: 'Trilha Flow — App para eventos' },
 
         // WhatsApp and other platforms
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
-        { property: 'og:image:alt', content: 'Trilha Flow - Event Economy Infrastructure' },
+        { property: 'og:image:alt', content: 'Trilha Flow — App para eventos' },
         { name: 'format-detection', content: 'telephone=no' },
 
         // Performance & Security
@@ -101,7 +101,7 @@ export default defineNuxtConfig({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Trilha Labs",
-            "description": "Criadores do Trilha Flow — Event Economy Infrastructure. A infraestrutura que transforma eventos em receita mensurável.",
+            "description": "Criadores do Trilha Flow — o app para eventos que continua vendendo depois do último dia. Loja dos expositores, moeda própria do evento e vídeos do público. A gente só cobra quando você ganha.",
             "url": "https://trilhalabs.com.br",
             "logo": "https://trilhalabs.com.br/og-image.jpg",
             "contactPoint": {
@@ -129,7 +129,7 @@ export default defineNuxtConfig({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Trilha Flow",
-            "description": "Event Economy Infrastructure: infraestrutura que transforma a atenção do evento em receita mensurável com gamificação, reels, marketplace interno e revenue share nativo.",
+            "description": "App para eventos com a cara do seu evento: missões, ranking, moeda própria, loja dos expositores, vídeos do público e cotas de patrocínio com número. A gente só cobra quando você ganha.",
             "url": "https://trilhalabs.com.br/produto",
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "iOS, Android",
@@ -146,14 +146,14 @@ export default defineNuxtConfig({
               "bestRating": "5"
             },
             "featureList": [
-              "App white-label iOS e Android",
-              "Gamificação com missões, ranking e streaks",
-              "Feed social com reels",
-              "Economia virtual com moedas e loja",
-              "Marketplace interno de expositores",
-              "Cotas digitais segmentadas de patrocínio",
-              "Dashboard de receita em tempo real",
-              "Revenue share nativo"
+              "App do seu evento para iOS e Android, com a sua marca",
+              "Missões, ranking, medalhas e sequência diária",
+              "Feed com vídeos curtos feitos pelo público",
+              "Moeda própria do evento e loja dentro do app",
+              "Loja dos expositores vendendo antes, durante e depois",
+              "Cotas de patrocínio digital com relatório de quantos viram",
+              "Painel com vendas e engajamento em tempo real",
+              "A gente só cobra quando você ganha"
             ],
             "author": {
               "@type": "Organization",
@@ -200,26 +200,26 @@ export default defineNuxtConfig({
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Como funciona o modelo de revenue share da Trilha Flow?",
+                "name": "Como a Trilha Flow cobra pelo app do evento?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Trilha Flow opera em modelo de revenue share: você paga setup (calibrado por porte do evento) e take rate sobre receita nova gerada dentro do app (patrocínio digital, marketplace de expositores, economia virtual). Se não gerar receita pela Trilha, não paga take rate."
+                  "text": "A gente só cobra quando você ganha. Tem uma implantação (valor varia pelo porte do evento) e, depois, a gente fica com uma parte combinada sobre a receita nova gerada dentro do app: patrocínio digital, vendas dos expositores e moeda do evento. Se o app não gerar receita nova, você não paga essa parte."
                 }
               },
               {
                 "@type": "Question",
-                "name": "O Trilha Flow é um app white-label?",
+                "name": "O app fica com a cara do meu evento ou com a cara da Trilha?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Sim. Trilha Flow é completamente white-label: marca, cores, nome, ícone e conteúdo com a identidade do seu evento. Os participantes veem o app do evento, não o nosso."
+                  "text": "Com a cara do seu evento. Logo, cores, nome, ícone e conteúdo: tudo personalizado. O público baixa o app do seu evento e nem precisa saber que tem uma Trilha por trás."
                 }
               },
               {
                 "@type": "Question",
-                "name": "O Trilha Flow serve para qualquer tipo de evento?",
+                "name": "Que tipos de evento a Trilha Flow atende?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "A plataforma foi desenhada para eventos onde faz sentido criar economia digital: feiras, festivais, conferências, eventos corporativos e circuitos com volume de participantes que viabiliza marketplace, cotas digitais e economia virtual. A fit é discutida caso a caso na projeção."
+                  "text": "Feiras agro, feiras de negócio e consumo, festivais, eventos corporativos (convenções, kick-offs), eventos tech (conferências, meetups, hackathons) e circuitos com volume de participantes que permite uma loja interna e cotas de patrocínio digital. A gente avalia caso a caso antes de fechar."
                 }
               },
               {
@@ -227,15 +227,23 @@ export default defineNuxtConfig({
                 "name": "Quais resultados a Trilha Flow já entregou?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No case Fenamilho 2025, a Trilha Flow alcançou 3.500+ participantes ativos, 205.000 visualizações em reels, 14 sessões por usuário e mais de 20.000 interações gamificadas dentro do app."
+                  "text": "No case Fenamilho 2025, uma das maiores feiras agro do Sul do país, a Trilha Flow teve 3.500+ participantes ativos, 205.000 visualizações em vídeos feitos pelo próprio público, 14 sessões por participante e mais de 20.000 interações com missões e prêmios dentro do app."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Quem é o dono dos dados gerados no evento?",
+                "name": "Os dados do público são meus ou da Trilha?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "O organizador. Os dados do evento pertencem ao cliente. A Trilha Flow é a infraestrutura que opera sobre esses dados com termos de uso claros e em conformidade com a LGPD."
+                  "text": "São seus. O público é do seu evento e os dados também. A Trilha Flow só opera a plataforma, sempre dentro dos termos de uso e da LGPD."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quanto tempo leva pra ter o app do meu evento no ar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A gente planeja junto com o seu time, olhando a data do evento, o número de expositores e o quanto de personalização vocês querem. Cada evento tem um prazo diferente, mas a base do app já está pronta — a gente customiza em vez de construir do zero."
                 }
               }
             ]
@@ -287,7 +295,7 @@ export default defineNuxtConfig({
   site: {
     url: 'https://trilhalabs.com.br',
     name: 'Trilha Flow by Trilha Labs',
-    description: 'Event Economy Infrastructure — infraestrutura que transforma eventos em receita mensurável',
+    description: 'App para eventos que continua vendendo depois do último dia. A gente só cobra quando você ganha.',
     defaultLocale: 'pt-BR'
   },
 
@@ -310,6 +318,10 @@ export default defineNuxtConfig({
       { loc: '/para-participantes', priority: 0.7, changefreq: 'monthly' },
       // Segments
       { loc: '/eventos/agro', priority: 0.8, changefreq: 'monthly' },
+      { loc: '/eventos/tech', priority: 0.75, changefreq: 'monthly' },
+      { loc: '/eventos/corporativos', priority: 0.8, changefreq: 'monthly' },
+      { loc: '/eventos/feiras', priority: 0.8, changefreq: 'monthly' },
+      { loc: '/eventos/festivais', priority: 0.75, changefreq: 'monthly' },
       // Intent
       { loc: '/como-monetizar-evento', priority: 0.85, changefreq: 'monthly' }
     ]
@@ -322,7 +334,7 @@ export default defineNuxtConfig({
         '/sitemap.xml', '/robots.txt',
         '/', '/produto', '/casos', '/precos', '/contato',
         '/para-organizadores', '/para-expositores', '/para-patrocinadores', '/para-participantes',
-        '/eventos/agro',
+        '/eventos/agro', '/eventos/tech', '/eventos/corporativos', '/eventos/feiras', '/eventos/festivais',
         '/como-monetizar-evento'
       ]
     },

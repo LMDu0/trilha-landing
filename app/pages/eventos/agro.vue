@@ -60,15 +60,31 @@
       </div>
     </section>
 
+    <!-- Related links -->
+    <section class="pb-16">
+      <div class="container mx-auto px-6 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-sm font-medium text-slate-500 mb-4">Veja também</div>
+          <div class="flex flex-wrap gap-2">
+            <NuxtLink to="/produto" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Como o app funciona</NuxtLink>
+            <NuxtLink to="/precos" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Como a gente cobra</NuxtLink>
+            <NuxtLink to="/casos" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Case Fenamilho 2025</NuxtLink>
+            <NuxtLink to="/para-organizadores" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Para organizadores</NuxtLink>
+            <NuxtLink to="/eventos/feiras" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">App para feira (geral)</NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="pb-24">
       <div class="container mx-auto px-6 sm:px-8">
         <div class="max-w-4xl mx-auto text-center p-10 md:p-14 rounded-3xl bg-slate-950 text-white relative overflow-hidden">
           <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-violet-600/20 blur-3xl rounded-full" />
           <div class="relative">
             <h2 class="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.05] mb-5">Sua feira agro pode rodar no mesmo padrão da Fenamilho.</h2>
-            <p class="text-slate-400 mb-8">Conversa direta com o time que entregou o case referência do setor.</p>
+            <p class="text-slate-400 mb-8">Conversa direta com o time que entregou o case referência do setor. A gente só cobra quando você ganha.</p>
             <NuxtLink to="/contato" class="inline-flex items-center gap-2 bg-white text-slate-900 font-medium px-6 py-3 rounded-full hover:bg-slate-100 transition-colors">
-              Agendar demo
+              Calcular minha feira
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
             </NuxtLink>
           </div>
@@ -80,9 +96,31 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'App para Eventos Agro — Trilha Flow | Feira agro que continua vendendo depois',
+  title: 'App para Feira Agro — Trilha Flow | A feira agro que continua vendendo',
+  link: [
+    { rel: 'canonical', href: 'https://trilhalabs.com.br/eventos/agro' }
+  ],
   meta: [
-    { name: 'description', content: 'App e plataforma para feiras agro. Transforme Expoagro, Fenamilho e eventos do setor num canal que continua vendendo depois do evento. A gente só cobra quando você ganha. Case Fenamilho 2025.' }
+    { name: 'description', content: 'App para feira agro: Expoagro, Fenamilho, Expointer e similares. Loja dos expositores sempre aberta, cotas pra cooperativas com número e moeda do evento. A gente só cobra quando você ganha.' },
+    { property: 'og:title', content: 'App para Feira Agro — Trilha Flow' },
+    { property: 'og:description', content: 'A feira agro que continua vendendo depois que o portão fecha. Case Fenamilho 2025.' },
+    { property: 'og:url', content: 'https://trilhalabs.com.br/eventos/agro' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://trilhalabs.com.br/' },
+          { '@type': 'ListItem', position: 2, name: 'Eventos', item: 'https://trilhalabs.com.br/eventos/agro' },
+          { '@type': 'ListItem', position: 3, name: 'Agro', item: 'https://trilhalabs.com.br/eventos/agro' }
+        ]
+      })
+    }
   ]
 })
 

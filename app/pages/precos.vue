@@ -163,9 +163,71 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'Como a gente cobra — Trilha Flow | A gente só cobra quando você ganha',
+  title: 'Preços — Trilha Flow | A gente só cobra quando você ganha',
+  link: [
+    { rel: 'canonical', href: 'https://trilhalabs.com.br/precos' }
+  ],
   meta: [
-    { name: 'description', content: 'Como a Trilha Flow cobra: a gente só fica com uma parte quando você ganha. Sem investimento inicial, comissão combinada sobre a receita nova gerada no seu evento.' }
+    { name: 'description', content: 'Sem mensalidade vazia, sem investimento inicial perdido. A Trilha Flow cobra uma implantação e fica com uma parte da receita nova que o app gerar pro seu evento.' },
+    { property: 'og:title', content: 'Trilha Flow — A gente só cobra quando você ganha' },
+    { property: 'og:description', content: 'Sem mensalidade vazia. A gente fica com uma parte da receita nova que o app gerar pro seu evento.' },
+    { property: 'og:url', content: 'https://trilhalabs.com.br/precos' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://trilhalabs.com.br/' },
+          { '@type': 'ListItem', position: 2, name: 'Preços', item: 'https://trilhalabs.com.br/precos' }
+        ]
+      })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Como funciona o "só cobra quando ganha"?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Você paga uma implantação (o valor varia pelo tamanho do evento) e, depois, só uma parte combinada sobre a receita nova que o app gerar: patrocínio digital, vendas dos expositores e moeda do evento. Se o app não gerar receita nova, você não paga essa parte.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Quanto tempo leva pra começar a rodar?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'A gente planeja junto com o seu time, olhando a data do evento, quantos expositores e o quanto de personalização vocês querem. Cada evento tem um prazo diferente.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'O app tem a minha marca ou a marca da Trilha?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'A sua marca. Logo, cores, nome, ícone e conteúdo com a cara do seu evento. O público nem sabe que tem uma Trilha por trás.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Os dados do público são meus ou da Trilha?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'São seus. O público é do seu evento e os dados também. A Trilha só opera a plataforma, sempre dentro dos termos de uso e da LGPD.'
+            }
+          }
+        ]
+      })
+    }
   ]
 })
 

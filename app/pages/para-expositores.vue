@@ -33,7 +33,7 @@
       </div>
     </section>
 
-    <section class="pb-24 pt-20">
+    <section class="pb-14 pt-20">
       <div class="container mx-auto px-6 sm:px-8 text-center">
         <NuxtLink to="/contato" class="inline-flex items-center gap-2 bg-slate-900 text-white font-medium px-6 py-3.5 rounded-full">
           Quero expor via Trilha
@@ -41,14 +41,50 @@
         </NuxtLink>
       </div>
     </section>
+
+    <!-- Related links -->
+    <section class="pb-20">
+      <div class="container mx-auto px-6 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-sm font-medium text-slate-500 mb-4">Veja também</div>
+          <div class="flex flex-wrap gap-2">
+            <NuxtLink to="/produto" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Como o app funciona</NuxtLink>
+            <NuxtLink to="/precos" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Como a gente cobra</NuxtLink>
+            <NuxtLink to="/para-organizadores" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Para organizadores</NuxtLink>
+            <NuxtLink to="/contato" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Falar com a gente</NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-  title: 'Trilha Flow para Expositores — Venda 24 horas antes, durante e depois do evento',
+  title: 'Trilha Flow para Expositores — Venda 24h antes, durante e depois do evento',
+  link: [
+    { rel: 'canonical', href: 'https://trilhalabs.com.br/para-expositores' }
+  ],
   meta: [
-    { name: 'description', content: 'Expositores vendem 24 horas pela loja do app da Trilha Flow, antes, durante e depois do evento. Catálogo sempre aberto.' }
+    { name: 'description', content: 'Expositores vendem 24 horas pelo app do evento: antes, durante e depois. Vitrine do estande sempre aberta, do dia da feira até o próximo ano.' },
+    { property: 'og:title', content: 'Trilha Flow para Expositores' },
+    { property: 'og:description', content: 'Seu estande aberto 24 horas. O público compra antes, durante e depois do evento, direto pelo app.' },
+    { property: 'og:url', content: 'https://trilhalabs.com.br/para-expositores' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://trilhalabs.com.br/' },
+          { '@type': 'ListItem', position: 2, name: 'Para expositores', item: 'https://trilhalabs.com.br/para-expositores' }
+        ]
+      })
+    }
   ]
 })
 

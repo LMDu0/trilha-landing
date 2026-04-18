@@ -35,7 +35,7 @@
       </div>
     </section>
 
-    <section class="pb-24 pt-20 text-center">
+    <section class="pb-14 pt-20 text-center">
       <div class="container mx-auto px-6 sm:px-8">
         <NuxtLink to="/contato" class="inline-flex items-center gap-2 bg-slate-900 text-white font-medium px-6 py-3.5 rounded-full">
           Falar com o time de mídia
@@ -43,14 +43,50 @@
         </NuxtLink>
       </div>
     </section>
+
+    <!-- Related links -->
+    <section class="pb-20">
+      <div class="container mx-auto px-6 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-sm font-medium text-slate-500 mb-4">Veja também</div>
+          <div class="flex flex-wrap gap-2">
+            <NuxtLink to="/produto" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Como o app funciona</NuxtLink>
+            <NuxtLink to="/casos" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Case Fenamilho 2025</NuxtLink>
+            <NuxtLink to="/para-organizadores" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Para organizadores</NuxtLink>
+            <NuxtLink to="/como-monetizar-evento" class="px-4 py-2 rounded-full border border-slate-200 bg-white text-sm text-slate-700 hover:border-slate-900 transition-colors">Como monetizar evento</NuxtLink>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 useHead({
-  title: 'Trilha Flow para Patrocinadores — Patrocínio com número em eventos',
+  title: 'Trilha Flow para Patrocinadores — Patrocínio de evento com número',
+  link: [
+    { rel: 'canonical', href: 'https://trilhalabs.com.br/para-patrocinadores' }
+  ],
   meta: [
-    { name: 'description', content: 'Pague por atenção com número dentro de eventos. Cotas de patrocínio digital com público certo e relatório de quantos viram, clicaram e compraram.' }
+    { name: 'description', content: 'Pare de patrocinar evento no escuro. Cotas de patrocínio digital com público certo e relatório de quantas pessoas viram, clicaram e compraram — dentro de um evento real.' },
+    { property: 'og:title', content: 'Trilha Flow para Patrocinadores' },
+    { property: 'og:description', content: 'Patrocínio de evento com número: quantas pessoas viram, clicaram e compraram.' },
+    { property: 'og:url', content: 'https://trilhalabs.com.br/para-patrocinadores' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://trilhalabs.com.br/' },
+          { '@type': 'ListItem', position: 2, name: 'Para patrocinadores', item: 'https://trilhalabs.com.br/para-patrocinadores' }
+        ]
+      })
+    }
   ]
 })
 

@@ -206,7 +206,7 @@ const appScreens = [
   {
     id: 'platform',
     title: 'Plataforma',
-    description: 'Solução completa de software para gestão de eventos agrícolas e feiras',
+    description: 'App de engajamento e receita pós-ingresso para feiras agro e eventos do setor',
     image: '/images/mockup5.svg'
   }
 ]

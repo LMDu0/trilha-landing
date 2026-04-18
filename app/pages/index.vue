@@ -22,7 +22,7 @@
 
           <!-- Subtitle -->
           <p class="max-w-2xl mx-auto text-center text-lg md:text-xl text-slate-500 leading-relaxed mb-10">
-            Trilha Flow é o app que faz seu evento continuar faturando depois que acaba. Seus expositores seguem vendendo, os vídeos do público seguem rodando, e a moeda do evento continua valendo até a próxima edição. Você só paga quando ganha.
+            Trilha Flow é o app que faz seu evento continuar faturando depois que acaba. Vive em cima da sua bilheteria — não substitui. Seus expositores seguem vendendo, os vídeos do público seguem rodando e a moeda do evento continua valendo até a próxima edição. Você só paga quando ganha.
           </p>
 
           <!-- CTAs -->
@@ -31,7 +31,7 @@
               to="/contato"
               class="group inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-medium px-6 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-slate-900/10"
             >
-              Falar com a gente
+              Calcular quanto meu evento pode faturar
               <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
             </NuxtLink>
             <NuxtLink
@@ -85,6 +85,7 @@
                 Durante o seu evento, milhares de pessoas se encontram, olham, compram e recomendam.
                 A Trilha Flow é o app que organiza tudo isso num só lugar: com a sua marca, com regras
                 que você define, e com novas formas de você faturar sem aumentar o custo do evento.
+                A bilheteria continua sendo da sua plataforma de ingresso — a Trilha começa depois que o público já está com você.
               </p>
             </div>
 
@@ -392,22 +393,35 @@
       </div>
     </section>
 
+    <!-- Sticky mobile CTA (aparece só em telas pequenas) -->
+    <div class="md:hidden fixed bottom-4 left-4 right-4 z-40 pointer-events-none">
+      <NuxtLink to="/contato"
+                class="pointer-events-auto flex items-center justify-center gap-2 bg-slate-900 text-white font-medium px-5 py-3.5 rounded-full shadow-xl shadow-slate-900/20 border border-white/10">
+        Calcular quanto meu evento pode faturar
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+      </NuxtLink>
+    </div>
+
   </div>
 </template>
 
 <script setup lang="ts">
-// SEO — category-focused
+// SEO — página inicial
 useHead({
-  title: 'Trilha Flow — Seu evento acaba no domingo. Sua receita, não.',
+  title: 'Trilha Flow — App para eventos que continua vendendo depois',
+  link: [
+    { rel: 'canonical', href: 'https://trilhalabs.com.br/' }
+  ],
   meta: [
     {
       name: 'description',
-      content: 'Trilha Flow é o app que mantém seu evento faturando depois do último dia. Loja dos expositores, vídeos que continuam viralizando e moeda do evento que circula até a próxima edição — a gente só cobra quando você ganha.'
+      content: 'App do seu evento com moeda própria, loja dos expositores e vídeos do público. Seu evento acaba no domingo — sua receita, não. A gente só cobra quando você ganha.'
     },
-    { property: 'og:title', content: 'Trilha Flow — Seu evento acaba no domingo. Sua receita, não.' },
-    { property: 'og:description', content: 'O app que mantém seu evento faturando depois do último dia. A gente só cobra quando você ganha.' },
+    { property: 'og:title', content: 'Trilha Flow — App para eventos que continua vendendo depois' },
+    { property: 'og:description', content: 'App do seu evento com moeda própria, loja dos expositores e vídeos do público. A gente só cobra quando você ganha.' },
     { property: 'og:type', content: 'website' },
-    { property: 'og:image', content: '/og-image.jpg' },
+    { property: 'og:url', content: 'https://trilhalabs.com.br/' },
+    { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' },
     { name: 'twitter:card', content: 'summary_large_image' }
   ]
 })
