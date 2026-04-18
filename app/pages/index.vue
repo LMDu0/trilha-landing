@@ -1142,8 +1142,8 @@ const retentionHooks = [
   },
   {
     tag: 'Feed social',
-    title: 'TikTok do seu evento',
-    description: 'Vídeos curtos do público rodando dentro do app. Viraliza, gera UGC — e alimenta a próxima edição.',
+    title: 'Feed de vídeos curtos do público',
+    description: 'Vídeos verticais do evento rodando dentro do app. Viraliza, gera conteúdo autêntico — e alimenta a próxima edição.',
     icon: 'lucide:play-circle'
   }
 ]

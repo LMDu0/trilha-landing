@@ -93,7 +93,7 @@
           </h2>
 
           <p class="text-lg text-gray-600 mt-4 leading-relaxed">
-            A mesma lógica por trás do Duolingo e do TikTok. Ciclos que transformam quem só assiste em quem participa de verdade.
+            A mesma lógica dos apps que viciam de verdade: missão, recompensa e progresso visível. Ciclos que transformam quem só assiste em quem participa.
           </p>
         </div>
 
@@ -131,11 +131,11 @@
           </span>
 
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-            O TikTok do seu evento
+            Feed de vídeos curtos, dentro do seu evento
           </h2>
 
           <p class="text-lg text-gray-600 mt-4 leading-relaxed">
-            Vídeos curtos feitos pelo próprio público, curtidas na hora e uma comunidade viva dentro do seu evento — que segue rodando depois que acaba.
+            Vídeos curtos em vertical, feitos pelo próprio público, curtidas na hora e uma comunidade viva dentro do seu evento — que segue rodando depois que acaba.
           </p>
         </div>
 
@@ -417,7 +417,7 @@ const socialFeatures: Feature[] = [
     icon: 'lucide:clapperboard',
     title: 'Reels na vertical',
     description:
-      'Feed de vídeos curtos igual TikTok. Expositores publicam, visitantes assistem e compartilham.',
+      'Feed de vídeos curtos em vertical. Expositores publicam, visitantes assistem e compartilham.',
   },
   {
     icon: 'lucide:heart',

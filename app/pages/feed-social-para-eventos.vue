@@ -42,7 +42,7 @@
 
             <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4 mt-12">O que o feed entrega na prática</h2>
             <ul class="space-y-3 text-slate-600 mb-6 list-disc pl-6">
-              <li><strong class="text-slate-900">Vídeo vertical:</strong> feed tipo TikTok, com rolagem infinita e reprodução automática.</li>
+              <li><strong class="text-slate-900">Vídeo vertical:</strong> feed em formato vertical, com rolagem infinita e reprodução automática.</li>
               <li><strong class="text-slate-900">Post do público:</strong> qualquer participante pode postar do evento, com moderação configurável.</li>
               <li><strong class="text-slate-900">Post de expositor e patrocinador:</strong> marca posta oferta e conteúdo, aparece em posição de destaque.</li>
               <li><strong class="text-slate-900">Curtida e comentário:</strong> interação social que gera ranking e vale pontos na <NuxtLink to="/gamificacao-para-eventos" class="text-violet-600 hover:underline">gamificação do evento</NuxtLink>.</li>
@@ -175,7 +175,7 @@ useHead({
   meta: [
     { name: 'description', content: 'Feed social com vídeos verticais dentro do app do seu evento. Post do público, destaque de expositor e patrocinador, curtidas e comentários. Mídia nativa que vira receita.' },
     { property: 'og:title', content: 'Feed social para eventos — Trilha Flow' },
-    { property: 'og:description', content: 'Um feed tipo TikTok dentro do app do seu evento: vídeo, destaque e interação.' },
+    { property: 'og:description', content: 'Feed de vídeos curtos em vertical dentro do app do seu evento: post do público, destaque de expositor e interação.' },
     { property: 'og:url', content: 'https://trilhalabs.com.br/feed-social-para-eventos' },
     { property: 'og:type', content: 'article' },
     { property: 'og:image', content: 'https://trilhalabs.com.br/og-image.jpg' }
