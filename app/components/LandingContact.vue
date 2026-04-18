@@ -249,7 +249,9 @@ import WhatsAppButton from './ui/WhatsAppButton.vue'
 import type { ContactFormData, EmailResponse } from '../types/contact'
 import { useToast } from '../composables/useToast'
 import { useMixpanel } from '../composables/useMixpanel'
-import * as Sentry from '@sentry/nuxt'
+
+// Sentry is imported dynamically inside handleSubmit (client-only) to avoid
+// blocking SSG prerender if SENTRY_DSN is missing at build time.
 
 const form = reactive<ContactFormData>({
   name: '',
@@ -336,22 +338,30 @@ async function handleSubmit() {
       throw new Error(response.message || 'Erro desconhecido')
     }
   } catch (error: any) {
-    // Log error to Sentry
-    Sentry.captureException(error, {
-      tags: {
-        section: 'contact_form'
-      },
-      extra: {
-        form_data: {
-          has_name: !!form.name,
-          has_company: !!form.company,
-          has_project_type: !!form.projectType,
-          message_length: form.message.length,
-          phone_length: form.phone.length
-        }
+    // Log error to Sentry (client-only, dynamic to keep SSG prerender safe
+    // if SENTRY_DSN is missing at build time).
+    if (import.meta.client) {
+      try {
+        const Sentry = await import('@sentry/nuxt')
+        Sentry.captureException(error, {
+          tags: {
+            section: 'contact_form'
+          },
+          extra: {
+            form_data: {
+              has_name: !!form.name,
+              has_company: !!form.company,
+              has_project_type: !!form.projectType,
+              message_length: form.message.length,
+              phone_length: form.phone.length
+            }
+          }
+        })
+      } catch {
+        // Sentry is optional; swallow any load/report errors.
       }
-    })
-    
+    }
+
     // Always show user-friendly message, log technical details to Sentry
     const errorMessage = 'Ops! Não conseguimos enviar sua mensagem no momento. Que tal falar conosco diretamente pelo WhatsApp?'
     

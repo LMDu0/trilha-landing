@@ -18,7 +18,25 @@
     </section>
 
     <!-- Contact form (component) -->
-    <LandingContact />
+    <!--
+      ClientOnly wrapper: the form subtree was causing an "Invalid string length"
+      error during SSG prerender (V8 max string size hit, likely from nested
+      @vueuse/motion directives in child buttons/icons during Vue SSR).
+      Rendering only on the client keeps the hero (above) prerendered for SEO
+      while avoiding the prerender crash.
+    -->
+    <ClientOnly>
+      <LandingContact />
+      <template #fallback>
+        <div class="py-14 md:py-20">
+          <div class="container px-6 sm:px-8">
+            <div class="mx-auto max-w-2xl text-center">
+              <p class="text-slate-400">Carregando formulário…</p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </ClientOnly>
 
     <!-- Quick contact options -->
     <section class="py-16 md:py-24 bg-slate-50/40 border-t border-slate-100">

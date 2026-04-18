@@ -266,12 +266,17 @@ export default defineNuxtConfig({
   },
 
   // Sentry configuration
+  // NOTE: autoInjectServerSentry is intentionally disabled. The site is fully
+  // prerendered (SSG), so there is no long-running server runtime to monitor.
+  // Injecting Sentry at the top of the server bundle was hanging the prerender
+  // for /contato (50s+ timeout → 500) when SENTRY_DSN is not available at
+  // build time (e.g. Vercel builds without the env var). Client-side Sentry
+  // still works via sentry.client.config.ts and dynamic imports.
   sentry: {
     sourceMapsUploadOptions: {
       org: "idealiza-studio",
       project: "trilha-labs-landing",
     },
-    autoInjectServerSentry: "top-level-import",
   },
 
   sourcemap: {
